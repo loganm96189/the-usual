@@ -1,0 +1,33 @@
+name: Refresh restaurant data
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"      # Mondays 09:00 UTC (All The Places publishes weekly)
+  workflow_dispatch:          # "Run workflow" button in the Actions tab
+  push:
+    paths: ["data/chains.json", "scripts/build_data.py"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build location data from All The Places
+        run: python3 scripts/build_data.py
+      - name: Show chains with no locations
+        run: python3 -c "import json;[print(r['locations'], r['chain']) for r in json.load(open('data/report.json')) if r['locations']<5]"
+      - name: Commit if changed
+        run: |
+          rm -f atp-output.zip
+          git config user.name "the-usual-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Refresh locations $(date -u +%F)"
+          git push
