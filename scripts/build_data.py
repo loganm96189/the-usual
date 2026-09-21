@@ -143,6 +143,86 @@ def brand_codes(cfg, insights_url):
     return code_map, data
 
 
+WDQS = "https://query.wikidata.org/sparql"
+BRANDISH = re.compile(r"restaurant|chain|bar\b|pub\b|brew|diner|caf|eater|steak|grill|pizz|entertainment|franchise|dining|food", re.I)
+
+
+def wikidata_codes(cfg, code_map):
+    """Look up Wikidata codes (by English label or alias) for chains the insights file didn't cover."""
+    have = set(code_map.values())
+    labels = {}
+    for i, c in enumerate(cfg["chains"]):
+        if i in have:
+            continue
+        for n in [c["name"], *c.get("aliases", [])]:
+            for v in {n, n.replace("'", "\u2019")}:
+                labels[v] = i
+    if not labels:
+        return
+    items = list(labels)
+    found = 0
+    for start in range(0, len(items), 40):
+        chunk = items[start:start + 40]
+        vals = " ".join(json.dumps(x) + "@en" for x in chunk)
+        q = ("SELECT ?item ?label ?desc WHERE { VALUES ?label { " + vals + " } "
+             "{ ?item rdfs:label ?label } UNION { ?item skos:altLabel ?label } "
+             "OPTIONAL { ?item schema:description ?desc FILTER(lang(?desc) = 'en') } }")
+        try:
+            req = urllib.request.Request(WDQS, data=urllib.parse.urlencode({"query": q, "format": "json"}).encode(),
+                                         headers={**HEADERS, "Accept": "application/sparql-results+json"})
+            with urllib.request.urlopen(req, timeout=120) as r:
+                rows = json.load(r)["results"]["bindings"]
+        except Exception as e:  # noqa: BLE001
+            print(f"  Wikidata lookup failed: {e}", flush=True)
+            return
+        for b in rows:
+            desc = b.get("desc", {}).get("value", "")
+            if not BRANDISH.search(desc):
+                continue  # skip songs, places, people that share the name
+            code = b["item"]["value"].rsplit("/", 1)[-1]
+            i = labels[b["label"]["value"]]
+            if code not in code_map:
+                code_map[code] = i
+                found += 1
+        time.sleep(2)
+    print(f"  Wikidata search added {found} codes", flush=True)
+
+
+def osm_by_name(cfg, idxs, lookup):
+    """Last resort for chains with no Wikidata tagging in OSM: match US restaurants by exact name."""
+    pats = set()
+    for i in idxs:
+        c = cfg["chains"][i]
+        for n in [c["name"], *c.get("aliases", [])]:
+            # no backslash escapes (Overpass strings handle them differently): any punctuation -> optional wildcard
+            pats.add(re.sub(r"[^A-Za-z0-9 ]", ".?", n))
+    if not pats:
+        return []
+    out = []
+    q = ('[out:json][timeout:600];area["ISO3166-1"="US"][admin_level=2]->.us;'
+         'nwr["amenity"~"^(restaurant|bar|pub|fast_food|cafe|biergarten|nightclub)$"]'
+         f'["name"~"^({"|".join(sorted(pats))})$",i](area.us);out center tags;')
+    try:
+        req = urllib.request.Request(OVERPASS, data=urllib.parse.urlencode({"data": q}).encode(), headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=700) as r:
+            els = json.load(r).get("elements", [])
+    except Exception as e:  # noqa: BLE001
+        print(f"  OpenStreetMap name lookup failed: {e}", flush=True)
+        return []
+    for el in els:
+        t = el.get("tags", {})
+        i = lookup.get(norm(t.get("name")))
+        lat, lon = el.get("lat", el.get("center", {}).get("lat")), el.get("lon", el.get("center", {}).get("lon"))
+        if i not in idxs or lat is None:
+            continue
+        out.append([i, round(lat, 5), round(lon, 5),
+                    " ".join(x for x in [t.get("addr:housenumber"), t.get("addr:street")] if x),
+                    t.get("addr:city", ""), t.get("addr:state", "")[:2].upper(), t.get("addr:postcode", "")[:5],
+                    t.get("phone") or t.get("contact:phone") or "", t.get("opening_hours", "")])
+    print(f"  OpenStreetMap name match: {len(out)} places", flush=True)
+    return out
+
+
 OVERPASS = "https://overpass-api.de/api/interpreter"
 
 
@@ -196,10 +276,20 @@ def main():
             with fetch(LATEST) as r:
                 run = json.load(r)
         print(f"All The Places run {run['run_id']}", flush=True)
+        if os.environ.get("SKIP_IF_SAME") == "1":
+            try:
+                last = json.load(open(os.path.join(DATA, "index.json"))).get("run_id")
+            except (OSError, ValueError):
+                last = None
+            if last == run["run_id"]:
+                print("No new All The Places data since the last build; nothing to do.", flush=True)
+                return
         zpath = os.path.join(ROOT, "atp-output.zip")
         download(run["output_url"], zpath)
 
     code_map, _ = brand_codes(cfg, run.get("insights_url"))
+    if os.environ.get("SKIP_WIKIDATA") != "1":
+        wikidata_codes(cfg, code_map)
     keywords = list(keywords) + [f'"{q.lower()}"'.encode() for q in code_map]
 
     rows, counts, spiders = [], [0] * len(cfg["chains"]), {}
@@ -252,6 +342,14 @@ def main():
         for r in extra:
             spiders.setdefault(cfg["chains"][r[0]]["id"], set()).add("openstreetmap")
         rows += extra
+    if os.environ.get("SKIP_OSM") != "1":
+        still = {i for i in range(len(cfg["chains"])) if atp_counts[i] < 5}  # duplicates are removed below
+        if still:
+            print(f"name search for {len(still)} chains in OpenStreetMap", flush=True)
+            extra = osm_by_name(cfg, still, lookup)
+            for r in extra:
+                spiders.setdefault(cfg["chains"][r[0]]["id"], set()).add("openstreetmap-name")
+            rows += extra
 
     # de-duplicate the same chain within ~40 m (two spiders can cover one brand)
     seen, uniq = set(), []
