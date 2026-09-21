@@ -29,7 +29,7 @@ jobs:
           ATP_OUTPUT_URL: ${{ github.event.inputs.output_url }}
         run: python3 scripts/build_data.py
       - name: Show chains with no locations
-        run: python3 -c "import json;[print(r['locations'], r['chain']) for r in json.load(open('data/report.json')) if r['locations']<5]"
+        run: python3 -c "import json;[print(r['locations'], r['chain'], r['wikidata'] or 'no Wikidata code found') for r in json.load(open('data/report.json')) if r['locations']<5]"
       - name: Commit if changed
         run: |
           rm -f atp-output.zip
