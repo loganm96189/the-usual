@@ -1,0 +1,760 @@
+{
+ "tiers": {
+  "casual": "Casual",
+  "family": "Family",
+  "polished": "Polished",
+  "novelty": "Novelty"
+ },
+ "chains": [
+  {
+   "id": "applebees",
+   "name": "Applebee's",
+   "tier": "casual",
+   "aliases": [
+    "Applebee's Grill + Bar",
+    "Applebee's Neighborhood Grill & Bar"
+   ]
+  },
+  {
+   "id": "chilis",
+   "name": "Chili's",
+   "tier": "casual",
+   "aliases": [
+    "Chili's Grill & Bar",
+    "Chili's Too"
+   ]
+  },
+  {
+   "id": "olive-garden",
+   "name": "Olive Garden",
+   "tier": "casual",
+   "aliases": [
+    "Olive Garden Italian Restaurant",
+    "Olive Garden Italian Kitchen"
+   ]
+  },
+  {
+   "id": "outback-steakhouse",
+   "name": "Outback Steakhouse",
+   "tier": "casual",
+   "aliases": [
+    "Outback"
+   ]
+  },
+  {
+   "id": "red-lobster",
+   "name": "Red Lobster",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "tgi-fridays",
+   "name": "TGI Fridays",
+   "tier": "casual",
+   "aliases": [
+    "TGI Friday's",
+    "T.G.I. Friday's",
+    "Fridays"
+   ]
+  },
+  {
+   "id": "texas-roadhouse",
+   "name": "Texas Roadhouse",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "longhorn-steakhouse",
+   "name": "LongHorn Steakhouse",
+   "tier": "casual",
+   "aliases": [
+    "Longhorn"
+   ]
+  },
+  {
+   "id": "buffalo-wild-wings",
+   "name": "Buffalo Wild Wings",
+   "tier": "casual",
+   "aliases": [
+    "BWW",
+    "Buffalo Wild Wings GO"
+   ]
+  },
+  {
+   "id": "red-robin",
+   "name": "Red Robin",
+   "tier": "casual",
+   "aliases": [
+    "Red Robin Gourmet Burgers",
+    "Red Robin Gourmet Burgers and Brews"
+   ]
+  },
+  {
+   "id": "ruby-tuesday",
+   "name": "Ruby Tuesday",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "ocharleys",
+   "name": "O'Charley's",
+   "tier": "casual",
+   "aliases": [
+    "O'Charley's Restaurant & Bar"
+   ]
+  },
+  {
+   "id": "cheddars-scratch-kitchen",
+   "name": "Cheddar's Scratch Kitchen",
+   "tier": "casual",
+   "aliases": [
+    "Cheddar's",
+    "Cheddar's Casual Cafe"
+   ]
+  },
+  {
+   "id": "carrabbas-italian-grill",
+   "name": "Carrabba's Italian Grill",
+   "tier": "casual",
+   "aliases": [
+    "Carrabba's"
+   ]
+  },
+  {
+   "id": "bonefish-grill",
+   "name": "Bonefish Grill",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "logans-roadhouse",
+   "name": "Logan's Roadhouse",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "saltgrass-steak-house",
+   "name": "Saltgrass Steak House",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "hooters",
+   "name": "Hooters",
+   "tier": "novelty",
+   "aliases": []
+  },
+  {
+   "id": "twin-peaks",
+   "name": "Twin Peaks",
+   "tier": "novelty",
+   "aliases": []
+  },
+  {
+   "id": "tilted-kilt",
+   "name": "Tilted Kilt",
+   "tier": "novelty",
+   "aliases": [
+    "Tilted Kilt Pub & Eatery"
+   ]
+  },
+  {
+   "id": "millers-ale-house",
+   "name": "Miller's Ale House",
+   "tier": "casual",
+   "aliases": [
+    "Miller's Ale House Restaurant"
+   ]
+  },
+  {
+   "id": "bar-louie",
+   "name": "Bar Louie",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "famous-daves",
+   "name": "Famous Dave's",
+   "tier": "casual",
+   "aliases": [
+    "Famous Dave's Bar-B-Que"
+   ]
+  },
+  {
+   "id": "uno-pizzeria-grill",
+   "name": "Uno Pizzeria & Grill",
+   "tier": "casual",
+   "aliases": [
+    "Uno",
+    "Uno Chicago Grill",
+    "Pizzeria Uno"
+   ]
+  },
+  {
+   "id": "bahama-breeze",
+   "name": "Bahama Breeze",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "chuys",
+   "name": "Chuy's",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "on-the-border",
+   "name": "On The Border",
+   "tier": "casual",
+   "aliases": [
+    "On The Border Mexican Grill & Cantina"
+   ]
+  },
+  {
+   "id": "abuelos",
+   "name": "Abuelo's",
+   "tier": "casual",
+   "aliases": [
+    "Abuelo's Mexican Restaurant"
+   ]
+  },
+  {
+   "id": "el-chico",
+   "name": "El Chico",
+   "tier": "casual",
+   "aliases": [
+    "El Chico Cafe"
+   ]
+  },
+  {
+   "id": "chevys-fresh-mex",
+   "name": "Chevys Fresh Mex",
+   "tier": "casual",
+   "aliases": [
+    "Chevys"
+   ]
+  },
+  {
+   "id": "joes-crab-shack",
+   "name": "Joe's Crab Shack",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "romanos-macaroni-grill",
+   "name": "Romano's Macaroni Grill",
+   "tier": "casual",
+   "aliases": [
+    "Macaroni Grill"
+   ]
+  },
+  {
+   "id": "buca-di-beppo",
+   "name": "Buca di Beppo",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "ninety-nine",
+   "name": "Ninety Nine",
+   "tier": "casual",
+   "aliases": [
+    "Ninety Nine Restaurant",
+    "Ninety Nine Restaurant & Pub",
+    "99 Restaurant"
+   ]
+  },
+  {
+   "id": "smokey-bones",
+   "name": "Smokey Bones",
+   "tier": "casual",
+   "aliases": [
+    "Smokey Bones Bar & Fire Grill"
+   ]
+  },
+  {
+   "id": "beef-o-bradys",
+   "name": "Beef 'O' Brady's",
+   "tier": "casual",
+   "aliases": [
+    "Beef O'Brady's"
+   ]
+  },
+  {
+   "id": "walk-ons",
+   "name": "Walk-On's",
+   "tier": "casual",
+   "aliases": [
+    "Walk-On's Sports Bistreaux"
+   ]
+  },
+  {
+   "id": "old-chicago",
+   "name": "Old Chicago",
+   "tier": "casual",
+   "aliases": [
+    "Old Chicago Pizza + Taproom",
+    "Old Chicago Pizza & Taproom"
+   ]
+  },
+  {
+   "id": "rock-bottom",
+   "name": "Rock Bottom",
+   "tier": "casual",
+   "aliases": [
+    "Rock Bottom Restaurant & Brewery"
+   ]
+  },
+  {
+   "id": "dave-busters",
+   "name": "Dave & Buster's",
+   "tier": "novelty",
+   "aliases": []
+  },
+  {
+   "id": "rainforest-cafe",
+   "name": "Rainforest Cafe",
+   "tier": "novelty",
+   "aliases": []
+  },
+  {
+   "id": "bubba-gump-shrimp-co",
+   "name": "Bubba Gump Shrimp Co.",
+   "tier": "novelty",
+   "aliases": [
+    "Bubba Gump",
+    "Bubba Gump Shrimp Company"
+   ]
+  },
+  {
+   "id": "benihana",
+   "name": "Benihana",
+   "tier": "novelty",
+   "aliases": []
+  },
+  {
+   "id": "houlihans",
+   "name": "Houlihan's",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "hurricane-grill-wings",
+   "name": "Hurricane Grill & Wings",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "kona-grill",
+   "name": "Kona Grill",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "taco-mac",
+   "name": "Taco Mac",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "mellow-mushroom",
+   "name": "Mellow Mushroom",
+   "tier": "casual",
+   "aliases": []
+  },
+  {
+   "id": "dennys",
+   "name": "Denny's",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "ihop",
+   "name": "IHOP",
+   "tier": "family",
+   "aliases": [
+    "International House of Pancakes"
+   ]
+  },
+  {
+   "id": "cracker-barrel",
+   "name": "Cracker Barrel",
+   "tier": "family",
+   "aliases": [
+    "Cracker Barrel Old Country Store"
+   ]
+  },
+  {
+   "id": "bob-evans",
+   "name": "Bob Evans",
+   "tier": "family",
+   "aliases": [
+    "Bob Evans Restaurant"
+   ]
+  },
+  {
+   "id": "waffle-house",
+   "name": "Waffle House",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "perkins",
+   "name": "Perkins",
+   "tier": "family",
+   "aliases": [
+    "Perkins Restaurant & Bakery",
+    "Perkins American Food Co."
+   ]
+  },
+  {
+   "id": "huddle-house",
+   "name": "Huddle House",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "village-inn",
+   "name": "Village Inn",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "shoneys",
+   "name": "Shoney's",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "golden-corral",
+   "name": "Golden Corral",
+   "tier": "family",
+   "aliases": [
+    "Golden Corral Buffet & Grill"
+   ]
+  },
+  {
+   "id": "black-bear-diner",
+   "name": "Black Bear Diner",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "friendlys",
+   "name": "Friendly's",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "eatn-park",
+   "name": "Eat'n Park",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "frischs-big-boy",
+   "name": "Frisch's Big Boy",
+   "tier": "family",
+   "aliases": [
+    "Frisch's"
+   ]
+  },
+  {
+   "id": "big-boy",
+   "name": "Big Boy",
+   "tier": "family",
+   "aliases": [
+    "Elias Brothers Big Boy"
+   ]
+  },
+  {
+   "id": "marie-callenders",
+   "name": "Marie Callender's",
+   "tier": "family",
+   "aliases": [
+    "Marie Callender's Restaurant & Bakery"
+   ]
+  },
+  {
+   "id": "first-watch",
+   "name": "First Watch",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "another-broken-egg-cafe",
+   "name": "Another Broken Egg Cafe",
+   "tier": "family",
+   "aliases": [
+    "Another Broken Egg"
+   ]
+  },
+  {
+   "id": "metro-diner",
+   "name": "Metro Diner",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "kings-family-restaurant",
+   "name": "Kings Family Restaurant",
+   "tier": "family",
+   "aliases": [
+    "Kings Family"
+   ]
+  },
+  {
+   "id": "cocos-bakery-restaurant",
+   "name": "Coco's Bakery Restaurant",
+   "tier": "family",
+   "aliases": [
+    "Coco's"
+   ]
+  },
+  {
+   "id": "mimis-cafe",
+   "name": "Mimi's Cafe",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "silver-diner",
+   "name": "Silver Diner",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "le-peep",
+   "name": "Le Peep",
+   "tier": "family",
+   "aliases": []
+  },
+  {
+   "id": "the-cheesecake-factory",
+   "name": "The Cheesecake Factory",
+   "tier": "polished",
+   "aliases": [
+    "Cheesecake Factory"
+   ]
+  },
+  {
+   "id": "yard-house",
+   "name": "Yard House",
+   "tier": "polished",
+   "aliases": []
+  },
+  {
+   "id": "seasons-52",
+   "name": "Seasons 52",
+   "tier": "polished",
+   "aliases": []
+  },
+  {
+   "id": "bjs-restaurant-brewhouse",
+   "name": "BJ's Restaurant & Brewhouse",
+   "tier": "polished",
+   "aliases": [
+    "BJ's Restaurant",
+    "BJ's Brewhouse",
+    "BJ's Pizza & Grill"
+   ]
+  },
+  {
+   "id": "p-f-changs",
+   "name": "P.F. Chang's",
+   "tier": "polished",
+   "aliases": [
+    "PF Chang's",
+    "P. F. Chang's"
+   ]
+  },
+  {
+   "id": "maggianos-little-italy",
+   "name": "Maggiano's Little Italy",
+   "tier": "polished",
+   "aliases": [
+    "Maggiano's"
+   ]
+  },
+  {
+   "id": "bravo-italian-kitchen",
+   "name": "Bravo Italian Kitchen",
+   "tier": "polished",
+   "aliases": [
+    "Bravo Cucina Italiana",
+    "BRAVO! Cucina Italiana"
+   ]
+  },
+  {
+   "id": "brio-italian-grille",
+   "name": "Brio Italian Grille",
+   "tier": "polished",
+   "aliases": [
+    "Brio Tuscan Grille",
+    "Brio Coastal Bar & Kitchen"
+   ]
+  },
+  {
+   "id": "grand-lux-cafe",
+   "name": "Grand Lux Cafe",
+   "tier": "polished",
+   "aliases": []
+  },
+  {
+   "id": "j-alexanders",
+   "name": "J. Alexander's",
+   "tier": "polished",
+   "aliases": [
+    "J Alexander's"
+   ]
+  },
+  {
+   "id": "firebirds-wood-fired-grill",
+   "name": "Firebirds Wood Fired Grill",
+   "tier": "polished",
+   "aliases": [
+    "Firebirds"
+   ]
+  },
+  {
+   "id": "coopers-hawk-winery-restaurants",
+   "name": "Cooper's Hawk Winery & Restaurants",
+   "tier": "polished",
+   "aliases": [
+    "Cooper's Hawk",
+    "Cooper's Hawk Winery & Restaurant"
+   ]
+  },
+  {
+   "id": "north-italia",
+   "name": "North Italia",
+   "tier": "polished",
+   "aliases": []
+  },
+  {
+   "id": "del-friscos-grille",
+   "name": "Del Frisco's Grille",
+   "tier": "polished",
+   "aliases": []
+  },
+  {
+   "id": "granite-city-food-brewery",
+   "name": "Granite City Food & Brewery",
+   "tier": "polished",
+   "aliases": [
+    "Granite City"
+   ]
+  },
+  {
+   "id": "gordon-biersch",
+   "name": "Gordon Biersch",
+   "tier": "polished",
+   "aliases": [
+    "Gordon Biersch Brewery Restaurant"
+   ]
+  },
+  {
+   "id": "texas-de-brazil",
+   "name": "Texas de Brazil",
+   "tier": "polished",
+   "aliases": []
+  },
+  {
+   "id": "fogo-de-ch-o",
+   "name": "Fogo de Chão",
+   "tier": "polished",
+   "aliases": [
+    "Fogo de Chao"
+   ]
+  },
+  {
+   "id": "stoney-river",
+   "name": "Stoney River",
+   "tier": "polished",
+   "aliases": [
+    "Stoney River Steakhouse and Grill"
+   ]
+  },
+  {
+   "id": "uncle-julios",
+   "name": "Uncle Julio's",
+   "tier": "polished",
+   "aliases": []
+  },
+  {
+   "id": "cantina-laredo",
+   "name": "Cantina Laredo",
+   "tier": "polished",
+   "aliases": []
+  },
+  {
+   "id": "true-food-kitchen",
+   "name": "True Food Kitchen",
+   "tier": "polished",
+   "aliases": []
+  },
+  {
+   "id": "medieval-times",
+   "name": "Medieval Times",
+   "tier": "novelty",
+   "aliases": [
+    "Medieval Times Dinner & Tournament"
+   ]
+  },
+  {
+   "id": "margaritaville",
+   "name": "Margaritaville",
+   "tier": "novelty",
+   "aliases": [
+    "Jimmy Buffett's Margaritaville",
+    "Margaritaville Restaurant"
+   ]
+  },
+  {
+   "id": "main-event",
+   "name": "Main Event",
+   "tier": "novelty",
+   "aliases": [
+    "Main Event Entertainment"
+   ]
+  },
+  {
+   "id": "topgolf",
+   "name": "Topgolf",
+   "tier": "novelty",
+   "aliases": [
+    "Top Golf"
+   ]
+  },
+  {
+   "id": "punch-bowl-social",
+   "name": "Punch Bowl Social",
+   "tier": "novelty",
+   "aliases": []
+  },
+  {
+   "id": "pinstripes",
+   "name": "Pinstripes",
+   "tier": "novelty",
+   "aliases": [
+    "Pinstripes Bistro Bocce Bowling"
+   ]
+  },
+  {
+   "id": "t-rex-cafe",
+   "name": "T-Rex Cafe",
+   "tier": "novelty",
+   "aliases": [
+    "T-REX Cafe"
+   ]
+  },
+  {
+   "id": "bone-daddys",
+   "name": "Bone Daddy's",
+   "tier": "novelty",
+   "aliases": [
+    "Bone Daddy's House of Smoke"
+   ]
+  }
+ ]
+}
