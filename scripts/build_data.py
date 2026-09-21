@@ -17,6 +17,9 @@ DATA = os.path.join(ROOT, "data")
 MIN_ROWS = int(os.environ.get("MIN_ROWS", "1000"))  # safety check
 CELL = 2  # degrees; must match CELL in app.js
 LATEST = "https://data.alltheplaces.xyz/runs/latest.json"
+# Some data hosts reject Python's default user agent (HTTP 403), so identify the script properly.
+HEADERS = {"User-Agent": "the-usual-data-builder/1.0 (+https://github.com; weekly chain-restaurant refresh)",
+           "Accept": "*/*"}
 COUNTRIES = {"US"}  # add "CA" to include Canada
 US_BOXES = [(24.3, -125.0, 49.5, -66.8), (51.0, -180.0, 71.5, -129.0), (18.8, -160.5, 22.4, -154.7)]  # lower48, AK, HI
 
@@ -73,9 +76,21 @@ def iter_features(raw):
                     pass
 
 
+def fetch(url, tries=4):
+    """urlopen with a real User-Agent and a few retries."""
+    for i in range(tries):
+        try:
+            return urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=120)
+        except Exception as e:  # noqa: BLE001
+            if i == tries - 1:
+                raise
+            print(f"  retrying {url} after error: {e}", flush=True)
+            time.sleep(10 * (i + 1))
+
+
 def download(url, dest):
     print(f"downloading {url}", flush=True)
-    with urllib.request.urlopen(url) as r, open(dest, "wb") as f:
+    with fetch(url) as r, open(dest, "wb") as f:
         total, got, t0 = int(r.headers.get("Content-Length") or 0), 0, time.time()
         while chunk := r.read(1 << 20):
             f.write(chunk); got += len(chunk)
@@ -92,7 +107,13 @@ def main():
     run = {"run_id": "local"}
     zpath = args.zip
     if not zpath:
-        run = json.load(urllib.request.urlopen(LATEST))
+        override = os.environ.get("ATP_OUTPUT_URL", "").strip()
+        if override:
+            run = {"run_id": override.rstrip("/").split("/")[-2], "output_url": override}
+        else:
+            with fetch(LATEST) as r:
+                run = json.load(r)
+        print(f"All The Places run {run['run_id']}", flush=True)
         zpath = os.path.join(ROOT, "atp-output.zip")
         download(run["output_url"], zpath)
 
