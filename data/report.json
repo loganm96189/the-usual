@@ -1,0 +1,715 @@
+[
+ {
+  "chain": "Red Robin",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "O'Charley's",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Saltgrass Steak House",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Tilted Kilt",
+  "tier": "novelty",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Bar Louie",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Famous Dave's",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Uno Pizzeria & Grill",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Bahama Breeze",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "On The Border",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Abuelo's",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "El Chico",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Chevys Fresh Mex",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Joe's Crab Shack",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Smokey Bones",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Walk-On's",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Old Chicago",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Rock Bottom",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Rainforest Cafe",
+  "tier": "novelty",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Bubba Gump Shrimp Co.",
+  "tier": "novelty",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Hurricane Grill & Wings",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Taco Mac",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Mellow Mushroom",
+  "tier": "casual",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Village Inn",
+  "tier": "family",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Friendly's",
+  "tier": "family",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Frisch's Big Boy",
+  "tier": "family",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "First Watch",
+  "tier": "family",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Another Broken Egg Cafe",
+  "tier": "family",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Kings Family Restaurant",
+  "tier": "family",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Coco's Bakery Restaurant",
+  "tier": "family",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Mimi's Cafe",
+  "tier": "family",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Silver Diner",
+  "tier": "family",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Le Peep",
+  "tier": "family",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Seasons 52",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "BJ's Restaurant & Brewhouse",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Bravo Italian Kitchen",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Brio Italian Grille",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Grand Lux Cafe",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "J. Alexander's",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Firebirds Wood Fired Grill",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Cooper's Hawk Winery & Restaurants",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "North Italia",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Del Frisco's Grille",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Granite City Food & Brewery",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Gordon Biersch",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Texas de Brazil",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Stoney River",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Uncle Julio's",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Cantina Laredo",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "True Food Kitchen",
+  "tier": "polished",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Margaritaville",
+  "tier": "novelty",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Main Event",
+  "tier": "novelty",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Punch Bowl Social",
+  "tier": "novelty",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Pinstripes",
+  "tier": "novelty",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "T-Rex Cafe",
+  "tier": "novelty",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Bone Daddy's",
+  "tier": "novelty",
+  "locations": 0,
+  "spiders": []
+ },
+ {
+  "chain": "Cracker Barrel",
+  "tier": "family",
+  "locations": 1,
+  "spiders": [
+   "bmo_us"
+  ]
+ },
+ {
+  "chain": "Medieval Times",
+  "tier": "novelty",
+  "locations": 9,
+  "spiders": [
+   "medieval_times"
+  ]
+ },
+ {
+  "chain": "Romano's Macaroni Grill",
+  "tier": "casual",
+  "locations": 16,
+  "spiders": [
+   "macaroni_grill_us"
+  ]
+ },
+ {
+  "chain": "Houlihan's",
+  "tier": "casual",
+  "locations": 19,
+  "spiders": [
+   "houlihans_us"
+  ]
+ },
+ {
+  "chain": "Kona Grill",
+  "tier": "casual",
+  "locations": 19,
+  "spiders": [
+   "kona_grill_us"
+  ]
+ },
+ {
+  "chain": "Marie Callender's",
+  "tier": "family",
+  "locations": 23,
+  "spiders": [
+   "marie_callenders_us"
+  ]
+ },
+ {
+  "chain": "Fogo de Ch\u00e3o",
+  "tier": "polished",
+  "locations": 43,
+  "spiders": [
+   "fogo_de_chao"
+  ]
+ },
+ {
+  "chain": "Buca di Beppo",
+  "tier": "casual",
+  "locations": 46,
+  "spiders": [
+   "buca_di_beppo_us"
+  ]
+ },
+ {
+  "chain": "Big Boy",
+  "tier": "family",
+  "locations": 46,
+  "spiders": [
+   "big_boy_us"
+  ]
+ },
+ {
+  "chain": "Shoney's",
+  "tier": "family",
+  "locations": 53,
+  "spiders": [
+   "shoneys_us"
+  ]
+ },
+ {
+  "chain": "Maggiano's Little Italy",
+  "tier": "polished",
+  "locations": 53,
+  "spiders": [
+   "maggianos_little_italy"
+  ]
+ },
+ {
+  "chain": "Eat'n Park",
+  "tier": "family",
+  "locations": 55,
+  "spiders": [
+   "eatn_park_us"
+  ]
+ },
+ {
+  "chain": "TGI Fridays",
+  "tier": "casual",
+  "locations": 65,
+  "spiders": [
+   "tgi_fridays_us"
+  ]
+ },
+ {
+  "chain": "Metro Diner",
+  "tier": "family",
+  "locations": 71,
+  "spiders": [
+   "metro_diner",
+   "metro_diner_us"
+  ]
+ },
+ {
+  "chain": "Benihana",
+  "tier": "novelty",
+  "locations": 80,
+  "spiders": [
+   "benihana"
+  ]
+ },
+ {
+  "chain": "Ninety Nine",
+  "tier": "casual",
+  "locations": 93,
+  "spiders": [
+   "ninety_nine_restaurant_us"
+  ]
+ },
+ {
+  "chain": "Yard House",
+  "tier": "polished",
+  "locations": 98,
+  "spiders": [
+   "yard_house"
+  ]
+ },
+ {
+  "chain": "Topgolf",
+  "tier": "novelty",
+  "locations": 103,
+  "spiders": [
+   "topgolf_us"
+  ]
+ },
+ {
+  "chain": "Twin Peaks",
+  "tier": "novelty",
+  "locations": 111,
+  "spiders": [
+   "mister_car_wash",
+   "twin_peaks"
+  ]
+ },
+ {
+  "chain": "Chuy's",
+  "tier": "casual",
+  "locations": 113,
+  "spiders": [
+   "chuys_us"
+  ]
+ },
+ {
+  "chain": "Miller's Ale House",
+  "tier": "casual",
+  "locations": 114,
+  "spiders": [
+   "millers_ale_house"
+  ]
+ },
+ {
+  "chain": "Logan's Roadhouse",
+  "tier": "casual",
+  "locations": 115,
+  "spiders": [
+   "logans_roadhouse_us"
+  ]
+ },
+ {
+  "chain": "Beef 'O' Brady's",
+  "tier": "casual",
+  "locations": 126,
+  "spiders": [
+   "beef_o_bradys"
+  ]
+ },
+ {
+  "chain": "Perkins",
+  "tier": "family",
+  "locations": 147,
+  "spiders": [
+   "army_cemeteries_explorer_us",
+   "race_trac_us"
+  ]
+ },
+ {
+  "chain": "Bonefish Grill",
+  "tier": "casual",
+  "locations": 156,
+  "spiders": [
+   "bonefish_grill"
+  ]
+ },
+ {
+  "chain": "Hooters",
+  "tier": "novelty",
+  "locations": 167,
+  "spiders": [
+   "hooters"
+  ]
+ },
+ {
+  "chain": "Black Bear Diner",
+  "tier": "family",
+  "locations": 168,
+  "spiders": [
+   "black_bear_diner_us"
+  ]
+ },
+ {
+  "chain": "Ruby Tuesday",
+  "tier": "casual",
+  "locations": 169,
+  "spiders": [
+   "ruby_tuesday_us"
+  ]
+ },
+ {
+  "chain": "Dave & Buster's",
+  "tier": "novelty",
+  "locations": 181,
+  "spiders": [
+   "dave_and_busters"
+  ]
+ },
+ {
+  "chain": "Cheddar's Scratch Kitchen",
+  "tier": "casual",
+  "locations": 186,
+  "spiders": [
+   "cheddars_scratch_kitchen"
+  ]
+ },
+ {
+  "chain": "Carrabba's Italian Grill",
+  "tier": "casual",
+  "locations": 203,
+  "spiders": [
+   "carrabbas_italian_grill"
+  ]
+ },
+ {
+  "chain": "P.F. Chang's",
+  "tier": "polished",
+  "locations": 206,
+  "spiders": [
+   "indigo",
+   "pf_changs"
+  ]
+ },
+ {
+  "chain": "The Cheesecake Factory",
+  "tier": "polished",
+  "locations": 215,
+  "spiders": [
+   "the_cheesecake_factory"
+  ]
+ },
+ {
+  "chain": "Huddle House",
+  "tier": "family",
+  "locations": 247,
+  "spiders": [
+   "huddle_house_us"
+  ]
+ },
+ {
+  "chain": "Golden Corral",
+  "tier": "family",
+  "locations": 332,
+  "spiders": [
+   "bmo_us",
+   "golden_corral"
+  ]
+ },
+ {
+  "chain": "Bob Evans",
+  "tier": "family",
+  "locations": 412,
+  "spiders": [
+   "bob_evans_us"
+  ]
+ },
+ {
+  "chain": "Red Lobster",
+  "tier": "casual",
+  "locations": 496,
+  "spiders": [
+   "red_lobster_us"
+  ]
+ },
+ {
+  "chain": "LongHorn Steakhouse",
+  "tier": "casual",
+  "locations": 650,
+  "spiders": [
+   "longhorn_steakhouse"
+  ]
+ },
+ {
+  "chain": "Outback Steakhouse",
+  "tier": "casual",
+  "locations": 659,
+  "spiders": [
+   "outback_steakhouse"
+  ]
+ },
+ {
+  "chain": "Texas Roadhouse",
+  "tier": "casual",
+  "locations": 735,
+  "spiders": [
+   "texas_roadhouse"
+  ]
+ },
+ {
+  "chain": "Olive Garden",
+  "tier": "casual",
+  "locations": 968,
+  "spiders": [
+   "olive_garden"
+  ]
+ },
+ {
+  "chain": "Chili's",
+  "tier": "casual",
+  "locations": 1212,
+  "spiders": [
+   "chilis"
+  ]
+ },
+ {
+  "chain": "Denny's",
+  "tier": "family",
+  "locations": 1234,
+  "spiders": [
+   "dennys_us",
+   "phillips_66_conoco_76"
+  ]
+ },
+ {
+  "chain": "Buffalo Wild Wings",
+  "tier": "casual",
+  "locations": 1418,
+  "spiders": [
+   "bmo_us",
+   "buffalo_wild_wings_us"
+  ]
+ },
+ {
+  "chain": "Applebee's",
+  "tier": "casual",
+  "locations": 1451,
+  "spiders": [
+   "applebees"
+  ]
+ },
+ {
+  "chain": "IHOP",
+  "tier": "family",
+  "locations": 1679,
+  "spiders": [
+   "ihop"
+  ]
+ },
+ {
+  "chain": "Waffle House",
+  "tier": "family",
+  "locations": 2104,
+  "spiders": [
+   "waffle_house_us"
+  ]
+ }
+]
