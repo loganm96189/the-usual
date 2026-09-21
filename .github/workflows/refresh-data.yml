@@ -2,7 +2,7 @@ name: Refresh restaurant data
 
 on:
   schedule:
-    - cron: "0 9 * * 1"      # Mondays 09:00 UTC (All The Places publishes weekly)
+    - cron: "0 9 * * 4"      # Thursdays 09:00 UTC, after All The Places' weekly run usually finishes
   workflow_dispatch:          # "Run workflow" button in the Actions tab
     inputs:
       output_url:
@@ -14,6 +14,11 @@ on:
 
 permissions:
   contents: write
+
+# A newer run (e.g. two quick edits) cancels the older one instead of racing it.
+concurrency:
+  group: refresh-data
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -27,6 +32,8 @@ jobs:
       - name: Build location data from All The Places
         env:
           ATP_OUTPUT_URL: ${{ github.event.inputs.output_url }}
+          # Scheduled runs stop early when there's no new data; edits and manual runs always rebuild.
+          SKIP_IF_SAME: ${{ github.event_name == 'schedule' && '1' || '0' }}
         run: python3 scripts/build_data.py
       - name: Show chains with no locations
         run: python3 -c "import json;[print(r['locations'], r['chain'], r['wikidata'] or 'no Wikidata code found') for r in json.load(open('data/report.json')) if r['locations']<5]"
@@ -37,4 +44,5 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add data/
           git diff --cached --quiet || git commit -m "Refresh locations $(date -u +%F)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"   # in case files were edited while this ran
           git push
