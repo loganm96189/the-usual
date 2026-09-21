@@ -10,7 +10,7 @@ Stdlib only. Reads data/chains.json (the whitelist) and writes:
   data/index.json              which cells exist + build metadata
   data/report.json             per-chain counts (chains with 0 hits need an alias)
 """
-import argparse, gzip, io, json, math, os, re, sys, time, unicodedata, urllib.request, zipfile
+import argparse, gzip, io, json, math, os, re, sys, time, unicodedata, urllib.parse, urllib.request, zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -103,6 +103,82 @@ def download(url, dest):
                 print(f"  {got >> 20} / {total >> 20} MB ({time.time() - t0:.0f}s)", flush=True)
 
 
+def norm_title(s):
+    """Wikidata titles often carry a qualifier: 'Twin Peaks (restaurant chain)' -> 'twin peaks'."""
+    return norm(re.sub(r"\s*\(.*?\)", "", s or ""))
+
+
+def brand_codes(cfg, insights_url):
+    """Map Wikidata brand codes to whitelist chains using the run's insights file.
+
+    Spiders often store a short brand ("BJ's") and drop the name, so the Wikidata
+    code is the reliable key. Also honours an optional "wikidata" list per chain.
+    """
+    code_map = {}
+    for i, c in enumerate(cfg["chains"]):
+        for q in c.get("wikidata", []):
+            code_map[q] = i
+    if not insights_url:
+        return code_map, []
+    try:
+        with fetch(insights_url) as r:
+            data = json.load(r).get("data", [])
+    except Exception as e:  # noqa: BLE001
+        print(f"  insights unavailable ({e}); matching by name only", flush=True)
+        return code_map, []
+    names = {}
+    for i, c in enumerate(cfg["chains"]):
+        for n in [c["name"], *c.get("aliases", [])]:
+            names[norm(n)] = i
+    for e in data:
+        code = e.get("code")
+        if not code or code in code_map:
+            continue
+        for label in (e.get("atp_brand"), e.get("nsi_brand"), e.get("q_title")):
+            i = names.get(norm_title(label)) if label else None
+            if i is not None:
+                code_map[code] = i
+                break
+    print(f"  {len(code_map)} Wikidata brand codes matched to {len(set(code_map.values()))} chains", flush=True)
+    return code_map, data
+
+
+OVERPASS = "https://overpass-api.de/api/interpreter"
+
+
+def osm_rows(codes_by_chain):
+    """Fill chains that All The Places doesn't cover from OpenStreetMap (ODbL)."""
+    codes = sorted({q for qs in codes_by_chain.values() for q in qs})
+    if not codes:
+        return []
+    code_to_chain = {q: i for i, qs in codes_by_chain.items() for q in qs}
+    out = []
+    for start in range(0, len(codes), 15):
+        chunk = codes[start:start + 15]
+        q = (f'[out:json][timeout:600];area["ISO3166-1"="US"][admin_level=2]->.us;'
+             f'nwr["brand:wikidata"~"^({"|".join(chunk)})$"](area.us);out center tags;')
+        try:
+            req = urllib.request.Request(OVERPASS, data=urllib.parse.urlencode({"data": q}).encode(), headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=700) as r:
+                els = json.load(r).get("elements", [])
+        except Exception as e:  # noqa: BLE001
+            print(f"  OpenStreetMap lookup failed for {chunk}: {e}", flush=True)
+            continue
+        for el in els:
+            t = el.get("tags", {})
+            i = code_to_chain.get(t.get("brand:wikidata"))
+            lat, lon = el.get("lat", el.get("center", {}).get("lat")), el.get("lon", el.get("center", {}).get("lon"))
+            if i is None or lat is None or t.get("disused:amenity") or t.get("end_date"):
+                continue
+            out.append([i, round(lat, 5), round(lon, 5),
+                        " ".join(x for x in [t.get("addr:housenumber"), t.get("addr:street")] if x),
+                        t.get("addr:city", ""), t.get("addr:state", "")[:2].upper(), t.get("addr:postcode", "")[:5],
+                        t.get("phone") or t.get("contact:phone") or "", t.get("opening_hours", "")])
+        print(f"  OpenStreetMap: {len(els)} places for {len(chunk)} brand codes", flush=True)
+        time.sleep(5)
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--zip", help="path to an already-downloaded ATP output.zip")
@@ -114,13 +190,17 @@ def main():
     if not zpath:
         override = os.environ.get("ATP_OUTPUT_URL", "").strip()
         if override:
-            run = {"run_id": override.rstrip("/").split("/")[-2], "output_url": override}
+            run = {"run_id": override.rstrip("/").split("/")[-2], "output_url": override,
+                   "insights_url": override.rsplit("/", 1)[0] + "/stats/_insights.json"}
         else:
             with fetch(LATEST) as r:
                 run = json.load(r)
         print(f"All The Places run {run['run_id']}", flush=True)
         zpath = os.path.join(ROOT, "atp-output.zip")
         download(run["output_url"], zpath)
+
+    code_map, _ = brand_codes(cfg, run.get("insights_url"))
+    keywords = list(keywords) + [f'"{q.lower()}"'.encode() for q in code_map]
 
     rows, counts, spiders = [], [0] * len(cfg["chains"]), {}
     with zipfile.ZipFile(zpath) as z:
@@ -139,7 +219,9 @@ def main():
                 p, g = f.get("properties") or {}, f.get("geometry") or {}
                 if g.get("type") != "Point":
                     continue
-                idx = lookup.get(norm(p.get("brand"))) if p.get("brand") else None
+                idx = code_map.get(p.get("brand:wikidata"))
+                if idx is None and p.get("brand"):
+                    idx = lookup.get(norm(p.get("brand")))
                 if idx is None:
                     idx = lookup.get(norm(p.get("name")))
                 if idx is None:
@@ -155,6 +237,21 @@ def main():
                 spiders.setdefault(cfg["chains"][idx]["id"], set()).add(p.get("@spider") or name)
             if k % 500 == 0:
                 print(f"  scanned {k}/{len(names)} files, {len(rows)} matches", flush=True)
+
+    # Chains with (almost) nothing from All The Places: top up from OpenStreetMap by Wikidata code.
+    atp_counts = [0] * len(cfg["chains"])
+    for r in rows:
+        atp_counts[r[0]] += 1
+    thin = {}
+    for q, i in code_map.items():
+        if atp_counts[i] < 5:
+            thin.setdefault(i, []).append(q)
+    if thin and os.environ.get("SKIP_OSM") != "1":
+        print(f"topping up {len(thin)} chains from OpenStreetMap", flush=True)
+        extra = osm_rows(thin)
+        for r in extra:
+            spiders.setdefault(cfg["chains"][r[0]]["id"], set()).add("openstreetmap")
+        rows += extra
 
     # de-duplicate the same chain within ~40 m (two spiders can cover one brand)
     seen, uniq = set(), []
@@ -180,8 +277,11 @@ def main():
     json.dump({"run_id": run["run_id"], "built": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
                "cell": CELL, "count": len(uniq), "cells": sorted(cells)},
               open(os.path.join(DATA, "index.json"), "w"), separators=(",", ":"))
-    report = sorted(({"chain": c["name"], "tier": c["tier"], "locations": counts[i],
-                      "spiders": sorted(spiders.get(c["id"], []))} for i, c in enumerate(cfg["chains"])),
+    codes_of = {}
+    for q, i in code_map.items():
+        codes_of.setdefault(i, []).append(q)
+    report = sorted(({"chain": c["name"], "tier": c["tier"], "locations": counts[i], "wikidata": sorted(codes_of.get(i, [])),
+                      "sources": sorted(spiders.get(c["id"], []))} for i, c in enumerate(cfg["chains"])),
                     key=lambda x: x["locations"])
     json.dump(report, open(os.path.join(DATA, "report.json"), "w"), indent=1)
     print(f"\n{len(uniq)} locations in {len(cells)} cells")
