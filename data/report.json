@@ -1,363 +1,291 @@
 [
  {
-  "chain": "Red Robin",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "O'Charley's",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Saltgrass Steak House",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
- },
- {
   "chain": "Tilted Kilt",
   "tier": "novelty",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Bar Louie",
   "tier": "casual",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Famous Dave's",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Uno Pizzeria & Grill",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Bahama Breeze",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "On The Border",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Abuelo's",
   "tier": "casual",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "El Chico",
   "tier": "casual",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Chevys Fresh Mex",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Joe's Crab Shack",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Smokey Bones",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Walk-On's",
   "tier": "casual",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Old Chicago",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Rock Bottom",
   "tier": "casual",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Rainforest Cafe",
-  "tier": "novelty",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Bubba Gump Shrimp Co.",
-  "tier": "novelty",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Hurricane Grill & Wings",
   "tier": "casual",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Taco Mac",
   "tier": "casual",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Mellow Mushroom",
-  "tier": "casual",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Village Inn",
-  "tier": "family",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Friendly's",
-  "tier": "family",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Frisch's Big Boy",
-  "tier": "family",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "First Watch",
-  "tier": "family",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Another Broken Egg Cafe",
   "tier": "family",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Kings Family Restaurant",
   "tier": "family",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Coco's Bakery Restaurant",
   "tier": "family",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Mimi's Cafe",
-  "tier": "family",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Silver Diner",
-  "tier": "family",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [
+   "Q11301951"
+  ],
+  "sources": []
  },
  {
   "chain": "Le Peep",
   "tier": "family",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Seasons 52",
-  "tier": "polished",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "BJ's Restaurant & Brewhouse",
   "tier": "polished",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Bravo Italian Kitchen",
-  "tier": "polished",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Brio Italian Grille",
-  "tier": "polished",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Grand Lux Cafe",
   "tier": "polished",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "J. Alexander's",
-  "tier": "polished",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Firebirds Wood Fired Grill",
   "tier": "polished",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Cooper's Hawk Winery & Restaurants",
-  "tier": "polished",
-  "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "North Italia",
-  "tier": "polished",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Del Frisco's Grille",
   "tier": "polished",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Granite City Food & Brewery",
   "tier": "polished",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Gordon Biersch",
   "tier": "polished",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Texas de Brazil",
   "tier": "polished",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Stoney River",
   "tier": "polished",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Uncle Julio's",
   "tier": "polished",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Cantina Laredo",
   "tier": "polished",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "True Food Kitchen",
-  "tier": "polished",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Margaritaville",
   "tier": "novelty",
   "locations": 0,
-  "spiders": []
- },
- {
-  "chain": "Main Event",
-  "tier": "novelty",
-  "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Punch Bowl Social",
   "tier": "novelty",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Pinstripes",
   "tier": "novelty",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "T-Rex Cafe",
   "tier": "novelty",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
   "chain": "Bone Daddy's",
   "tier": "novelty",
   "locations": 0,
-  "spiders": []
+  "wikidata": [],
+  "sources": []
  },
  {
-  "chain": "Cracker Barrel",
-  "tier": "family",
-  "locations": 1,
-  "spiders": [
-   "bmo_us"
+  "chain": "North Italia",
+  "tier": "polished",
+  "locations": 3,
+  "wikidata": [
+   "Q140197733"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Medieval Times",
   "tier": "novelty",
   "locations": 9,
-  "spiders": [
+  "wikidata": [
+   "Q6806841"
+  ],
+  "sources": [
    "medieval_times"
+  ]
+ },
+ {
+  "chain": "J. Alexander's",
+  "tier": "polished",
+  "locations": 10,
+  "wikidata": [
+   "Q16997495"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Bubba Gump Shrimp Co.",
+  "tier": "novelty",
+  "locations": 12,
+  "wikidata": [
+   "Q50024"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Bravo Italian Kitchen",
+  "tier": "polished",
+  "locations": 14,
+  "wikidata": [
+   "Q64055574"
+  ],
+  "sources": [
+   "bravo_italian_us"
   ]
  },
  {
   "chain": "Romano's Macaroni Grill",
   "tier": "casual",
   "locations": 16,
-  "spiders": [
+  "wikidata": [
+   "Q7362714"
+  ],
+  "sources": [
    "macaroni_grill_us"
+  ]
+ },
+ {
+  "chain": "Rainforest Cafe",
+  "tier": "novelty",
+  "locations": 17,
+  "wikidata": [
+   "Q3391111"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Smokey Bones",
+  "tier": "casual",
+  "locations": 18,
+  "wikidata": [
+   "Q7545962"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Houlihan's",
   "tier": "casual",
   "locations": 19,
-  "spiders": [
+  "wikidata": [
+   "Q5913100"
+  ],
+  "sources": [
    "houlihans_us"
   ]
  },
@@ -365,23 +293,120 @@
   "chain": "Kona Grill",
   "tier": "casual",
   "locations": 19,
-  "spiders": [
+  "wikidata": [
+   "Q6428706"
+  ],
+  "sources": [
    "kona_grill_us"
+  ]
+ },
+ {
+  "chain": "Chevys Fresh Mex",
+  "tier": "casual",
+  "locations": 21,
+  "wikidata": [
+   "Q5094466"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Marie Callender's",
   "tier": "family",
   "locations": 23,
-  "spiders": [
+  "wikidata": [
+   "Q6762784"
+  ],
+  "sources": [
    "marie_callenders_us"
+  ]
+ },
+ {
+  "chain": "Silver Diner",
+  "tier": "family",
+  "locations": 25,
+  "wikidata": [
+   "Q7516006"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Brio Italian Grille",
+  "tier": "polished",
+  "locations": 29,
+  "wikidata": [
+   "Q64055835"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Bahama Breeze",
+  "tier": "casual",
+  "locations": 30,
+  "wikidata": [
+   "Q4842316"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "True Food Kitchen",
+  "tier": "polished",
+  "locations": 31,
+  "wikidata": [
+   "Q113488682"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Main Event",
+  "tier": "novelty",
+  "locations": 32,
+  "wikidata": [
+   "Q56062981"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Seasons 52",
+  "tier": "polished",
+  "locations": 34,
+  "wikidata": [
+   "Q7441933"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Joe's Crab Shack",
+  "tier": "casual",
+  "locations": 37,
+  "wikidata": [
+   "Q6208210"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Fogo de Ch\u00e3o",
   "tier": "polished",
   "locations": 43,
-  "spiders": [
+  "wikidata": [
+   "Q5464133"
+  ],
+  "sources": [
    "fogo_de_chao"
   ]
  },
@@ -389,7 +414,10 @@
   "chain": "Buca di Beppo",
   "tier": "casual",
   "locations": 46,
-  "spiders": [
+  "wikidata": [
+   "Q4982340"
+  ],
+  "sources": [
    "buca_di_beppo_us"
   ]
  },
@@ -397,15 +425,66 @@
   "chain": "Big Boy",
   "tier": "family",
   "locations": 46,
-  "spiders": [
+  "wikidata": [
+   "Q4386779"
+  ],
+  "sources": [
    "big_boy_us"
+  ]
+ },
+ {
+  "chain": "Uno Pizzeria & Grill",
+  "tier": "casual",
+  "locations": 47,
+  "wikidata": [
+   "Q62535574",
+   "Q7897209"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Frisch's Big Boy",
+  "tier": "family",
+  "locations": 47,
+  "wikidata": [
+   "Q5504660"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Mimi's Cafe",
+  "tier": "family",
+  "locations": 48,
+  "wikidata": [
+   "Q17022081"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Cooper's Hawk Winery & Restaurants",
+  "tier": "polished",
+  "locations": 48,
+  "wikidata": [
+   "Q17511079"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Shoney's",
   "tier": "family",
   "locations": 53,
-  "spiders": [
+  "wikidata": [
+   "Q7500392"
+  ],
+  "sources": [
    "shoneys_us"
   ]
  },
@@ -413,7 +492,10 @@
   "chain": "Maggiano's Little Italy",
   "tier": "polished",
   "locations": 53,
-  "spiders": [
+  "wikidata": [
+   "Q6730149"
+  ],
+  "sources": [
    "maggianos_little_italy"
   ]
  },
@@ -421,7 +503,10 @@
   "chain": "Eat'n Park",
   "tier": "family",
   "locations": 55,
-  "spiders": [
+  "wikidata": [
+   "Q5331211"
+  ],
+  "sources": [
    "eatn_park_us"
   ]
  },
@@ -429,32 +514,110 @@
   "chain": "TGI Fridays",
   "tier": "casual",
   "locations": 65,
-  "spiders": [
+  "wikidata": [
+   "Q1524184"
+  ],
+  "sources": [
    "tgi_fridays_us"
+  ]
+ },
+ {
+  "chain": "Saltgrass Steak House",
+  "tier": "casual",
+  "locations": 66,
+  "wikidata": [
+   "Q7406113"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Old Chicago",
+  "tier": "casual",
+  "locations": 66,
+  "wikidata": [
+   "Q64411347"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Metro Diner",
   "tier": "family",
   "locations": 71,
-  "spiders": [
+  "wikidata": [
+   "Q104870732"
+  ],
+  "sources": [
    "metro_diner",
    "metro_diner_us"
+  ]
+ },
+ {
+  "chain": "O'Charley's",
+  "tier": "casual",
+  "locations": 78,
+  "wikidata": [
+   "Q7071703"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Benihana",
   "tier": "novelty",
   "locations": 80,
-  "spiders": [
+  "wikidata": [
+   "Q4887996"
+  ],
+  "sources": [
    "benihana"
+  ]
+ },
+ {
+  "chain": "On The Border",
+  "tier": "casual",
+  "locations": 82,
+  "wikidata": [
+   "Q7091305"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Famous Dave's",
+  "tier": "casual",
+  "locations": 87,
+  "wikidata": [
+   "Q5433448"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Friendly's",
+  "tier": "family",
+  "locations": 92,
+  "wikidata": [
+   "Q1464513"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Ninety Nine",
   "tier": "casual",
   "locations": 93,
-  "spiders": [
+  "wikidata": [
+   "Q64358371"
+  ],
+  "sources": [
    "ninety_nine_restaurant_us"
   ]
  },
@@ -462,7 +625,10 @@
   "chain": "Yard House",
   "tier": "polished",
   "locations": 98,
-  "spiders": [
+  "wikidata": [
+   "Q21189156"
+  ],
+  "sources": [
    "yard_house"
   ]
  },
@@ -470,7 +636,10 @@
   "chain": "Topgolf",
   "tier": "novelty",
   "locations": 103,
-  "spiders": [
+  "wikidata": [
+   "Q7824379"
+  ],
+  "sources": [
    "topgolf_us"
   ]
  },
@@ -478,7 +647,10 @@
   "chain": "Twin Peaks",
   "tier": "novelty",
   "locations": 111,
-  "spiders": [
+  "wikidata": [
+   "Q7858255"
+  ],
+  "sources": [
    "mister_car_wash",
    "twin_peaks"
   ]
@@ -487,7 +659,10 @@
   "chain": "Chuy's",
   "tier": "casual",
   "locations": 113,
-  "spiders": [
+  "wikidata": [
+   "Q5118415"
+  ],
+  "sources": [
    "chuys_us"
   ]
  },
@@ -495,7 +670,10 @@
   "chain": "Miller's Ale House",
   "tier": "casual",
   "locations": 114,
-  "spiders": [
+  "wikidata": [
+   "Q6858987"
+  ],
+  "sources": [
    "millers_ale_house"
   ]
  },
@@ -503,23 +681,54 @@
   "chain": "Logan's Roadhouse",
   "tier": "casual",
   "locations": 115,
-  "spiders": [
+  "wikidata": [
+   "Q6666872"
+  ],
+  "sources": [
    "logans_roadhouse_us"
+  ]
+ },
+ {
+  "chain": "Village Inn",
+  "tier": "family",
+  "locations": 125,
+  "wikidata": [
+   "Q7930659"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Beef 'O' Brady's",
   "tier": "casual",
   "locations": 126,
-  "spiders": [
+  "wikidata": [
+   "Q4879745"
+  ],
+  "sources": [
    "beef_o_bradys"
+  ]
+ },
+ {
+  "chain": "Mellow Mushroom",
+  "tier": "casual",
+  "locations": 136,
+  "wikidata": [
+   "Q17021360"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Perkins",
   "tier": "family",
   "locations": 147,
-  "spiders": [
+  "wikidata": [
+   "Q7169056"
+  ],
+  "sources": [
    "army_cemeteries_explorer_us",
    "race_trac_us"
   ]
@@ -528,7 +737,10 @@
   "chain": "Bonefish Grill",
   "tier": "casual",
   "locations": 156,
-  "spiders": [
+  "wikidata": [
+   "Q4941599"
+  ],
+  "sources": [
    "bonefish_grill"
   ]
  },
@@ -536,7 +748,10 @@
   "chain": "Hooters",
   "tier": "novelty",
   "locations": 167,
-  "spiders": [
+  "wikidata": [
+   "Q1025921"
+  ],
+  "sources": [
    "hooters"
   ]
  },
@@ -544,7 +759,10 @@
   "chain": "Black Bear Diner",
   "tier": "family",
   "locations": 168,
-  "spiders": [
+  "wikidata": [
+   "Q4920343"
+  ],
+  "sources": [
    "black_bear_diner_us"
   ]
  },
@@ -552,7 +770,10 @@
   "chain": "Ruby Tuesday",
   "tier": "casual",
   "locations": 169,
-  "spiders": [
+  "wikidata": [
+   "Q7376400"
+  ],
+  "sources": [
    "ruby_tuesday_us"
   ]
  },
@@ -560,7 +781,10 @@
   "chain": "Dave & Buster's",
   "tier": "novelty",
   "locations": 181,
-  "spiders": [
+  "wikidata": [
+   "Q5228205"
+  ],
+  "sources": [
    "dave_and_busters"
   ]
  },
@@ -568,7 +792,10 @@
   "chain": "Cheddar's Scratch Kitchen",
   "tier": "casual",
   "locations": 186,
-  "spiders": [
+  "wikidata": [
+   "Q5089187"
+  ],
+  "sources": [
    "cheddars_scratch_kitchen"
   ]
  },
@@ -576,7 +803,10 @@
   "chain": "Carrabba's Italian Grill",
   "tier": "casual",
   "locations": 203,
-  "spiders": [
+  "wikidata": [
+   "Q5045999"
+  ],
+  "sources": [
    "carrabbas_italian_grill"
   ]
  },
@@ -584,7 +814,10 @@
   "chain": "P.F. Chang's",
   "tier": "polished",
   "locations": 206,
-  "spiders": [
+  "wikidata": [
+   "Q5360181"
+  ],
+  "sources": [
    "indigo",
    "pf_changs"
   ]
@@ -593,7 +826,10 @@
   "chain": "The Cheesecake Factory",
   "tier": "polished",
   "locations": 215,
-  "spiders": [
+  "wikidata": [
+   "Q1045842"
+  ],
+  "sources": [
    "the_cheesecake_factory"
   ]
  },
@@ -601,7 +837,10 @@
   "chain": "Huddle House",
   "tier": "family",
   "locations": 247,
-  "spiders": [
+  "wikidata": [
+   "Q5928324"
+  ],
+  "sources": [
    "huddle_house_us"
   ]
  },
@@ -609,32 +848,78 @@
   "chain": "Golden Corral",
   "tier": "family",
   "locations": 332,
-  "spiders": [
+  "wikidata": [
+   "Q4039560"
+  ],
+  "sources": [
    "bmo_us",
    "golden_corral"
+  ]
+ },
+ {
+  "chain": "First Watch",
+  "tier": "family",
+  "locations": 352,
+  "wikidata": [
+   "Q5454064"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Bob Evans",
   "tier": "family",
   "locations": 412,
-  "spiders": [
+  "wikidata": [
+   "Q4932386"
+  ],
+  "sources": [
    "bob_evans_us"
+  ]
+ },
+ {
+  "chain": "Red Robin",
+  "tier": "casual",
+  "locations": 454,
+  "wikidata": [
+   "Q7304886"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
   "chain": "Red Lobster",
   "tier": "casual",
   "locations": 496,
-  "spiders": [
+  "wikidata": [
+   "Q846301"
+  ],
+  "sources": [
    "red_lobster_us"
+  ]
+ },
+ {
+  "chain": "Cracker Barrel",
+  "tier": "family",
+  "locations": 635,
+  "wikidata": [
+   "Q4492609"
+  ],
+  "sources": [
+   "bmo_us",
+   "openstreetmap"
   ]
  },
  {
   "chain": "LongHorn Steakhouse",
   "tier": "casual",
   "locations": 650,
-  "spiders": [
+  "wikidata": [
+   "Q3259007"
+  ],
+  "sources": [
    "longhorn_steakhouse"
   ]
  },
@@ -642,7 +927,10 @@
   "chain": "Outback Steakhouse",
   "tier": "casual",
   "locations": 659,
-  "spiders": [
+  "wikidata": [
+   "Q1064893"
+  ],
+  "sources": [
    "outback_steakhouse"
   ]
  },
@@ -650,7 +938,10 @@
   "chain": "Texas Roadhouse",
   "tier": "casual",
   "locations": 735,
-  "spiders": [
+  "wikidata": [
+   "Q7707945"
+  ],
+  "sources": [
    "texas_roadhouse"
   ]
  },
@@ -658,7 +949,10 @@
   "chain": "Olive Garden",
   "tier": "casual",
   "locations": 968,
-  "spiders": [
+  "wikidata": [
+   "Q3045312"
+  ],
+  "sources": [
    "olive_garden"
   ]
  },
@@ -666,7 +960,10 @@
   "chain": "Chili's",
   "tier": "casual",
   "locations": 1212,
-  "spiders": [
+  "wikidata": [
+   "Q1072948"
+  ],
+  "sources": [
    "chilis"
   ]
  },
@@ -674,7 +971,11 @@
   "chain": "Denny's",
   "tier": "family",
   "locations": 1234,
-  "spiders": [
+  "wikidata": [
+   "Q11320661",
+   "Q1189695"
+  ],
+  "sources": [
    "dennys_us",
    "phillips_66_conoco_76"
   ]
@@ -683,7 +984,10 @@
   "chain": "Buffalo Wild Wings",
   "tier": "casual",
   "locations": 1418,
-  "spiders": [
+  "wikidata": [
+   "Q509255"
+  ],
+  "sources": [
    "bmo_us",
    "buffalo_wild_wings_us"
   ]
@@ -692,7 +996,10 @@
   "chain": "Applebee's",
   "tier": "casual",
   "locations": 1451,
-  "spiders": [
+  "wikidata": [
+   "Q621532"
+  ],
+  "sources": [
    "applebees"
   ]
  },
@@ -700,7 +1007,10 @@
   "chain": "IHOP",
   "tier": "family",
   "locations": 1679,
-  "spiders": [
+  "wikidata": [
+   "Q1185675"
+  ],
+  "sources": [
    "ihop"
   ]
  },
@@ -708,7 +1018,10 @@
   "chain": "Waffle House",
   "tier": "family",
   "locations": 2104,
-  "spiders": [
+  "wikidata": [
+   "Q1701206"
+  ],
+  "sources": [
    "waffle_house_us"
   ]
  }
