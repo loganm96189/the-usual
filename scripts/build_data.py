@@ -65,15 +65,20 @@ def iter_features(raw):
         raw = gzip.decompress(raw)
     head = raw[:200].lstrip()
     if b'"FeatureCollection"' in head:
-        yield from json.loads(raw).get("features", [])
-    else:
-        for line in raw.splitlines():
-            line = line.strip().rstrip(b",")
-            if line.startswith(b"{"):
-                try:
-                    yield json.loads(line)
-                except ValueError:
-                    pass
+        try:
+            yield from json.loads(raw).get("features", [])
+            return
+        except ValueError:
+            pass  # damaged or truncated file: fall back to reading it one feature per line
+    for line in raw.splitlines():
+        line = line.strip().rstrip(b",")
+        if line.startswith(b"{") and b'"Feature"' in line:
+            try:
+                f = json.loads(line)
+            except ValueError:
+                continue
+            if isinstance(f, dict) and f.get("type") == "Feature":
+                yield f
 
 
 def fetch(url, tries=4):
@@ -125,7 +130,12 @@ def main():
             probe = (gzip.decompress(raw) if raw[:2] == b"\x1f\x8b" else raw).lower()
             if not any(kw in probe for kw in keywords):
                 continue
-            for f in iter_features(raw):
+            try:
+                feats = list(iter_features(raw))
+            except Exception as e:  # noqa: BLE001 — one bad file should never sink the weekly build
+                print(f"  skipped {name}: {e}", flush=True)
+                continue
+            for f in feats:
                 p, g = f.get("properties") or {}, f.get("geometry") or {}
                 if g.get("type") != "Point":
                     continue
