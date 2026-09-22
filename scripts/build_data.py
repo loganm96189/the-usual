@@ -259,12 +259,50 @@ def osm_rows(codes_by_chain):
     return out
 
 
+GEONAMES_ZIPS = "https://download.geonames.org/export/zip/US.zip"
+
+
+def build_zips():
+    """ZIP -> [lat, lon, city, state] from GeoNames (CC BY 4.0), split by first 3 digits.
+
+    Lets the app answer ZIP searches itself instead of asking a geocoder.
+    Keeps the existing files if the download fails.
+    """
+    try:
+        with fetch(GEONAMES_ZIPS) as r:
+            raw = r.read()
+        with zipfile.ZipFile(io.BytesIO(raw)) as z:
+            text = z.read("US.txt").decode("utf-8")
+    except Exception as e:  # noqa: BLE001
+        print(f"  ZIP list unavailable ({e}); keeping the previous one", flush=True)
+        return
+    groups = {}
+    for line in text.splitlines():
+        f = line.split("\t")
+        if len(f) < 11 or not re.fullmatch(r"\d{5}", f[1]) or not f[9] or not f[10]:
+            continue
+        groups.setdefault(f[1][:3], {})[f[1]] = [round(float(f[9]), 4), round(float(f[10]), 4), f[2], f[4]]
+    if len(groups) < 500:
+        print(f"  ZIP list looks wrong ({len(groups)} prefixes); keeping the previous one", flush=True)
+        return
+    out = os.path.join(DATA, "zips")
+    os.makedirs(out, exist_ok=True)
+    for fn in os.listdir(out):
+        os.remove(os.path.join(out, fn))
+    for k, v in groups.items():
+        with open(os.path.join(out, k + ".json"), "w", encoding="utf-8") as fh:
+            json.dump(v, fh, separators=(",", ":"), ensure_ascii=False)
+    print(f"  ZIP lookup: {sum(len(v) for v in groups.values())} ZIPs in {len(groups)} files", flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--zip", help="path to an already-downloaded ATP output.zip")
     args = ap.parse_args()
 
     cfg, lookup, keywords = load_chains()
+    if os.environ.get("SKIP_ZIPS") != "1":
+        build_zips()
     run = {"run_id": "local"}
     zpath = args.zip
     if not zpath:
