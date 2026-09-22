@@ -6,7 +6,7 @@
 <title>The Usual</title>
 <meta name="description" content="The familiar chain restaurants near wherever you are — for travelers staying a while, families passing through, and anyone who just wants something they know.">
 <meta name="theme-color" content="#b23a2a">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b23a2a'/%3E%3Cpath d='M8 23V11a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v12M8 17h16M12 23v-6M20 23v-6' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b23a2a'/%3E%3Crect x='12.6' y='7.4' width='6.8' height='5.2' rx='1' fill='none' stroke='%23fff' stroke-opacity='.75' stroke-width='1.3'/%3E%3Cpath d='M5 8.2Q5 6.6 6.4 7.2L11.2 10.4V21.4L5 26.6Z M27 8.2Q27 6.6 25.6 7.2L20.8 10.4V21.4L27 26.6Z M13.2 15.2h5.6l1.9 4.6H11.3Z' fill='%23fff'/%3E%3Crect x='15.1' y='19.8' width='1.8' height='5.4' rx='.6' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap">
@@ -17,31 +17,36 @@
 <div class="app">
   <header class="top">
     <div class="brand">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" class="brand-tile"/><path d="M8 23V11a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v12M8 17h16M12 23v-6M20 23v-6" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" class="brand-tile"/><rect x="12.6" y="7.4" width="6.8" height="5.2" rx="1" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="1.3"/><path d="M5 8.2Q5 6.6 6.4 7.2L11.2 10.4V21.4L5 26.6Z M27 8.2Q27 6.6 25.6 7.2L20.8 10.4V21.4L27 26.6Z M13.2 15.2h5.6l1.9 4.6H11.3Z" fill="#fff"/><rect x="15.1" y="19.8" width="1.8" height="5.4" rx=".6" fill="#fff"/></svg>
       <div>
         <h1>The Usual</h1>
-        <p>Same menu, any town. <a href="about.html" class="about-link">About</a></p>
+        <p>Same menu, any town.</p>
       </div>
+      <a href="about.html" class="about-pill">About</a>
     </div>
 
     <form class="search" id="searchForm" autocomplete="off" role="search">
       <label for="place" class="sr">City, address, or ZIP</label>
       <input id="place" name="place" type="search" placeholder="City, address, or ZIP" enterkeyhint="search">
-      <button type="button" id="locate" class="icon-btn" title="Use my location" aria-label="Use my location">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      <button type="submit" id="go" class="icon-btn" title="Search" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg>
       </button>
       <ul id="suggest" class="suggest" role="listbox" hidden></ul>
     </form>
+    <button type="button" id="locate" class="locate">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      Use my current location
+    </button>
 
     <div class="filters">
       <div class="chips" id="tierChips" role="group" aria-label="Restaurant types"></div>
       <div class="filter-row">
         <label for="radius" class="sr">Distance</label>
         <select id="radius">
-          <option value="5">Within 5 mi</option>
-          <option value="10" selected>Within 10 mi</option>
-          <option value="25">Within 25 mi</option>
-          <option value="50">Within 50 mi</option>
+          <option value="1">Within 1 mi</option>
+          <option value="2">Within 2 mi</option>
+          <option value="5" selected>Within 5 mi</option>
+          <option value="10">Within 10 mi</option>
         </select>
         <button type="button" id="favsBtn" class="toggle" aria-pressed="false">★ Favorites</button>
         <button type="button" id="openBtn" class="toggle" aria-pressed="false">Open now</button>
