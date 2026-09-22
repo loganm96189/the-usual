@@ -46,6 +46,7 @@ button, input, select { font: inherit; color: inherit; }
 #map { position: absolute; inset: 0; }
 
 .brand { display: flex; align-items: center; gap: 10px; }
+.brand > div { flex: 1; min-width: 0; }
 .brand svg { width: 34px; height: 34px; flex: none; }
 .brand-tile { fill: var(--accent); }
 .brand h1 { font: 800 1.3rem/1 var(--display); letter-spacing: -.02em; margin: 0; }
@@ -65,7 +66,7 @@ button, input, select { font: inherit; color: inherit; }
 
 .filters { display: grid; gap: 8px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-@media (max-width: 400px) { .chip { padding: 0 10px; font-size: .82rem; } }
+@media (max-width: 480px) { .chips { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); } .chip { justify-content: center; padding: 0 4px; font-size: .8rem; gap: 4px; min-width: 0; white-space: nowrap; } .chip .dot { display: none; } }
 .chip { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 16px; border: 1px solid var(--line); background: var(--chip-off); cursor: pointer; font-size: .86rem; font-weight: 500; color: var(--muted); }
 .chip .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c); opacity: .45; }
 .chip[aria-pressed="true"] { background: var(--panel); color: var(--ink); border-color: var(--c); }
@@ -172,3 +173,17 @@ body.about { background: var(--ground); }
 .sheet-note { margin: 0; font-size: .8rem; color: var(--muted); line-height: 1.45; }
 .chain-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .chain-row .star { padding: 6px 4px; font-size: 1.15rem; }
+
+/* ---------- header refinements ---------- */
+.about-pill { flex: none; display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border-radius: 17px; border: 1.5px solid var(--accent); color: var(--accent); font-weight: 600; font-size: .9rem; text-decoration: none; }
+.about-pill:hover { background: var(--accent); color: var(--accent-ink); }
+.locate { justify-self: start; display: inline-flex; align-items: center; gap: 6px; margin-top: -4px; padding: 4px 2px; border: 0; background: none; color: var(--accent); font-weight: 600; font-size: .88rem; cursor: pointer; }
+.locate svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+.locate[aria-busy="true"] { opacity: .6; }
+/* type chips: all shown by default; tapping one shows only that type */
+.chips .chip { background: var(--panel); color: var(--ink); border-color: var(--c); }
+.chips .chip .dot { opacity: 1; }
+.chips.one .chip { background: var(--chip-off); color: var(--muted); border-color: var(--line); }
+.chips.one .chip .dot { opacity: .45; }
+.chips.one .chip[aria-pressed="true"] { background: var(--c); color: var(--panel); border-color: var(--c); }
+.chips.one .chip[aria-pressed="true"] .dot { background: var(--panel); opacity: 1; }
