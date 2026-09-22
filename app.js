@@ -358,7 +358,7 @@
     if (fly) state.map.easeTo({ center: [r.lon, r.lat], zoom: Math.max(state.map.getZoom(), 13), duration: 500 });
     document.querySelectorAll(".item.active").forEach((el) => el.classList.remove("active"));
     const el = document.querySelector(`.item[data-i="${i}"]`);
-    if (el) { el.classList.add("active"); if (!fly) el.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+    if (el) { el.classList.add("active"); }
   }
 
   // ---------- place search ----------
