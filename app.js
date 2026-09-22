@@ -25,8 +25,8 @@
     cells: new Map(),                      // cell key -> Promise<rows>
     center: store.get("center", null),     // [lon, lat]
     placeLabel: store.get("placeLabel", ""),
-    radius: store.get("radius", 10),
-    tiersOn: new Set(store.get("tiers", ["casual", "family", "polished", "novelty"])),
+    radius: [1, 2, 5, 10].includes(store.get("radius", 5)) ? store.get("radius", 5) : 5,
+    tier: store.get("tier", null),         // null = all types; otherwise show only this one
     chainsOff: new Set(store.get("chainsOff", [])),
     favs: new Set(store.get("favs", [])),
     favsOnly: store.get("favsOnly", false),
@@ -221,7 +221,7 @@
   function visible() {
     return state.results.filter((r) => {
       const ch = state.chains[r.c];
-      if (!ch || !state.tiersOn.has(ch.tier) || state.chainsOff.has(ch.id)) return false;
+      if (!ch || (state.tier && ch.tier !== state.tier) || state.chainsOff.has(ch.id)) return false;
       if (state.favsOnly && !state.favs.has(ch.id)) return false;
       if (state.openNow && !hoursStatus(r)?.open) return false;
       return true;
@@ -360,20 +360,45 @@
   let suggestTimer, suggestions = [], activeSuggest = -1;
   function photonLabel(p) {
     const pr = p.properties;
+    if (pr._zip) return { top: pr._zip, sub: [pr.city, pr.state].filter(Boolean).join(", ") };
     const top = pr.name || [pr.housenumber, pr.street].filter(Boolean).join(" ") || pr.postcode;
-    const sub = [pr.city && pr.city !== top ? pr.city : "", pr.state, pr.postcode && pr.postcode !== top ? pr.postcode : ""].filter(Boolean).join(", ");
+    const sub = [pr.city && pr.city !== top ? pr.city : pr.county, pr.state, pr.postcode && pr.postcode !== top ? pr.postcode : ""].filter(Boolean).join(", ");
     return { top, sub };
   }
+  // What kind of thing is being typed decides which results are worth suggesting.
+  const queryKind = (q) => /^\d{3,5}$/.test(q) ? "zip" : /^\d+\s+\S/.test(q) ? "address" : "place";
+  const PLACE_TYPES = new Set(["city", "locality", "district", "county", "state"]);
+  function refine(q, feats) {
+    const kind = queryKind(q), seen = new Set(), out = [];
+    if (kind === "zip") {
+      for (const f of feats) {
+        const z = (f.properties.postcode || "").slice(0, 5);
+        if (!z.startsWith(q) || seen.has(z)) continue;
+        seen.add(z);
+        out.push({ ...f, properties: { ...f.properties, _zip: z } });
+      }
+      return out.slice(0, 4);
+    }
+    for (const f of feats) {
+      if (kind === "place" && !PLACE_TYPES.has(f.properties.type)) continue;
+      const l = photonLabel(f), key = `${l.top}|${l.sub}`;
+      if (seen.has(key)) continue;
+      seen.add(key); out.push(f);
+    }
+    return out.slice(0, 6);
+  }
   async function geocode(q) {
+    q = q.trim();
     const u = new URL(PHOTON);
-    u.searchParams.set("q", /^\d{5}$/.test(q.trim()) ? `${q.trim()} USA` : q);
-    u.searchParams.set("limit", "6");
+    u.searchParams.set("q", queryKind(q) === "zip" ? `${q} USA` : q);
+    u.searchParams.set("limit", "15");
     u.searchParams.set("lang", "en");
     u.searchParams.set("bbox", "-170,18,-66,72");
     if (state.center) { u.searchParams.set("lon", state.center[0]); u.searchParams.set("lat", state.center[1]); }
     const r = await fetch(u);
     if (!r.ok) throw new Error("Place search is unavailable right now.");
-    return (await r.json()).features.filter((f) => !f.properties.countrycode || f.properties.countrycode === "US");
+    const us = (await r.json()).features.filter((f) => !f.properties.countrycode || f.properties.countrycode === "US");
+    return { best: refine(q, us), all: us };
   }
   function showSuggest(list) {
     suggestions = list; activeSuggest = -1;
@@ -393,14 +418,20 @@
   // ---------- UI wiring ----------
   function buildControls() {
     const chips = $("tierChips");
+    if (state.tier && !state.tiers[state.tier]) state.tier = null;
     chips.innerHTML = Object.entries(state.tiers).map(([k, label]) =>
-      `<button type="button" class="chip" data-tier="${k}" style="--c:var(--${k})" aria-pressed="${state.tiersOn.has(k)}"><span class="dot"></span>${esc(label)}</button>`).join("");
+      `<button type="button" class="chip" data-tier="${k}" style="--c:var(--${k})"><span class="dot"></span>${esc(label)}</button>`).join("");
+    // Tap a type to show only that type; tap it again to go back to all types.
+    const paintChips = () => {
+      chips.classList.toggle("one", !!state.tier);
+      chips.querySelectorAll(".chip").forEach((b) => b.setAttribute("aria-pressed", state.tier === b.dataset.tier));
+    };
+    paintChips();
     chips.addEventListener("click", (e) => {
       const b = e.target.closest(".chip"); if (!b) return;
-      const t = b.dataset.tier;
-      state.tiersOn.has(t) ? state.tiersOn.delete(t) : state.tiersOn.add(t);
-      b.setAttribute("aria-pressed", state.tiersOn.has(t));
-      store.set("tiers", [...state.tiersOn]);
+      state.tier = state.tier === b.dataset.tier ? null : b.dataset.tier;
+      store.set("tier", state.tier);
+      paintChips();
       render(false);
     });
 
@@ -456,7 +487,7 @@
       clearTimeout(suggestTimer);
       const q = input.value.trim();
       if (q.length < 3) return showSuggest([]);
-      suggestTimer = setTimeout(() => geocode(q).then(showSuggest).catch(() => showSuggest([])), 300);
+      suggestTimer = setTimeout(() => geocode(q).then((r) => showSuggest(r.best)).catch(() => showSuggest([])), 300);
     });
     input.addEventListener("keydown", (e) => {
       const items = $("suggest").querySelectorAll("li");
@@ -471,7 +502,11 @@
       e.preventDefault();
       if (activeSuggest >= 0) return pick(activeSuggest);
       const q = input.value.trim(); if (!q) return;
-      try { const list = await geocode(q); if (list.length) { suggestions = list; pick(0); } else $("summary").textContent = `Couldn't find "${q}". Try a city and state, or a ZIP.`; }
+      try {
+        const { best, all } = await geocode(q);
+        const list = best.length ? best : all;   // Enter still works if the only match is an address
+        if (list.length) { suggestions = list; pick(0); } else $("summary").textContent = `Couldn't find "${q}". Try a city and state, or a ZIP.`;
+      }
       catch (err) { $("summary").textContent = err.message; }
     });
     document.addEventListener("click", (e) => { if (!e.target.closest(".search")) $("suggest").hidden = true; });
