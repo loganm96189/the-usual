@@ -25,8 +25,8 @@
     cells: new Map(),                      // cell key -> Promise<rows>
     center: store.get("center", null),     // [lon, lat]
     placeLabel: store.get("placeLabel", ""),
-    radius: store.get("radius", 10),
-    tiersOn: new Set(store.get("tiers", ["casual", "family", "polished", "novelty"])),
+    radius: [1, 2, 5, 10].includes(store.get("radius", 5)) ? store.get("radius", 5) : 5,
+    tier: store.get("tier", null),         // null = all types; otherwise show only this one
     chainsOff: new Set(store.get("chainsOff", [])),
     favs: new Set(store.get("favs", [])),
     favsOnly: store.get("favsOnly", false),
@@ -218,14 +218,18 @@
     return { open: false, text: "Closed" };
   }
 
+  function passesFilters(r) {
+    const ch = state.chains[r.c];
+    if (!ch || (state.tier && ch.tier !== state.tier) || state.chainsOff.has(ch.id)) return false;
+    return !(state.favsOnly && !state.favs.has(ch.id));
+  }
+  // The list: with "Open now" on, only places whose listed hours say they're open.
   function visible() {
-    return state.results.filter((r) => {
-      const ch = state.chains[r.c];
-      if (!ch || !state.tiersOn.has(ch.tier) || state.chainsOff.has(ch.id)) return false;
-      if (state.favsOnly && !state.favs.has(ch.id)) return false;
-      if (state.openNow && !hoursStatus(r)?.open) return false;
-      return true;
-    });
+    return state.results.filter((r) => passesFilters(r) && (!state.openNow || hoursStatus(r)?.open));
+  }
+  // With "Open now" on, places with no listed hours stay off the list but show as faded dots on the map.
+  function unlisted() {
+    return state.openNow ? state.results.filter((r) => passesFilters(r) && !hoursStatus(r)) : [];
   }
 
   function directions(r) {
@@ -240,11 +244,14 @@
 
   function render(fit) {
     const rows = visible();
+    const faded = unlisted();
+    state.mapRows = rows.concat(faded);
     const list = $("list");
     const where = state.placeLabel ? ` of <strong>${esc(state.placeLabel)}</strong>` : "";
-    const hidden = state.results.length - rows.length;
+    const hidden = state.results.length - rows.length - faded.length;
     const notes = [];
-    if (state.openNow) notes.push(`<span class="note">Hours may differ, especially on holidays. Check Google or call ahead to be sure.</span>`);
+    if (state.openNow) notes.push(`<span class="note">Hours may differ, especially on holidays. Check Google or call ahead to be sure.</span>` +
+      (faded.length ? `<span class="note">${faded.length} more ${faded.length === 1 ? "place doesn't" : "places don't"} list hours. ${faded.length === 1 ? "It's" : "They're"} shown faded on the map.</span>` : ""));
     if (state.favsOnly) notes.push(state.favs.size
       ? `<span class="note">Favorites are saved only on this device and may clear after 7 days without a visit.</span>`
       : `<span class="note">No favorites yet. Tap the ☆ on any result, or in Chains, to save one.</span>`);
@@ -270,7 +277,7 @@
           </span></li>`;
       }).join("") + (rows.length > MAX_LIST ? `<li class="empty">Showing the closest ${MAX_LIST}. Narrow the distance to see the rest.</li>` : "");
     }
-    drawMap(rows, fit);
+    drawMap(state.mapRows, rows.length, fit);
   }
 
   // ---------- map ----------
@@ -293,11 +300,14 @@
       map.addLayer({ id: "hits", type: "circle", source: "hits", paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, 3, 10, 6, 14, 9],
         "circle-color": ["match", ["get", "tier"], "casual", tierColor("casual"), "family", tierColor("family"), "novelty", tierColor("novelty"), tierColor("polished")],
-        "circle-stroke-color": "#fff", "circle-stroke-width": 1.5 } });
+        "circle-stroke-color": "#fff", "circle-stroke-width": 1.5,
+        "circle-opacity": ["case", ["==", ["get", "faded"], 1], 0.35, 1],
+        "circle-stroke-opacity": ["case", ["==", ["get", "faded"], 1], 0.5, 1] } });
       map.addLayer({ id: "labels", type: "symbol", source: "hits", minzoom: 11.5,
         layout: { "text-field": ["get", "name"], "text-font": ["Noto Sans Bold"], "text-size": 12,
           "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true },
-        paint: { "text-color": dark ? "#eceef3" : "#1a1f2b", "text-halo-color": dark ? "#12151c" : "#ffffff", "text-halo-width": 1.4 } });
+        paint: { "text-color": dark ? "#eceef3" : "#1a1f2b", "text-halo-color": dark ? "#12151c" : "#ffffff", "text-halo-width": 1.4,
+          "text-opacity": ["case", ["==", ["get", "faded"], 1], 0.5, 1] } });
       map.addLayer({ id: "me-dot", type: "circle", source: "me", filter: ["==", ["geometry-type"], "Point"],
         paint: { "circle-radius": 7, "circle-color": "#2f6fed", "circle-stroke-color": "#fff", "circle-stroke-width": 2.5 } });
       map.on("click", "hits", (e) => openPopup(+e.features[0].properties.i, false));
@@ -317,13 +327,13 @@
     return pts;
   }
 
-  function drawMap(rows, fit) {
+  function drawMap(rows, listed, fit) {
     const map = state.map;
     if (!map || !map.getSource("hits")) return;
     const [lon, lat] = state.center;
     map.getSource("hits").setData({ type: "FeatureCollection", features: rows.map((r, i) => ({
       type: "Feature", geometry: { type: "Point", coordinates: [r.lon, r.lat] },
-      properties: { i, name: state.chains[r.c].name, tier: state.chains[r.c].tier } })) });
+      properties: { i, faded: i >= listed ? 1 : 0, name: state.chains[r.c].name, tier: state.chains[r.c].tier } })) });
     map.getSource("me").setData({ type: "FeatureCollection", features: [
       { type: "Feature", geometry: { type: "Point", coordinates: [lon, lat] }, properties: {} },
       { type: "Feature", geometry: { type: "Polygon", coordinates: [circle(lon, lat, state.radius * MI)] }, properties: {} } ] });
@@ -334,13 +344,16 @@
   }
 
   function openPopup(i, fly) {
-    const r = visible()[i];
+    const r = (state.mapRows || [])[i];
     if (!r || !state.map) return;
     const ch = state.chains[r.c];
+    const noHours = state.openNow && !hoursStatus(r);
     state.popup?.remove();
     state.popup = new maplibregl.Popup({ offset: 10, maxWidth: "260px" })
       .setLngLat([r.lon, r.lat])
-      .setHTML(`<b>${esc(ch.name)}</b>${esc(addr(r))}<br>${miles(r.d)} away · <a href="${directions(r)}" target="_blank" rel="noopener">Directions</a>`)
+      .setHTML(`<b>${esc(ch.name)}</b>${esc(addr(r))}<br>` +
+        (noHours ? `<span class="pop-note">Hours not listed. <a href="${googleLink(r)}" target="_blank" rel="noopener">Check Google</a> before you go.</span><br>` : "") +
+        `${miles(r.d)} away · <a href="${directions(r)}" target="_blank" rel="noopener">Directions</a>`)
       .addTo(state.map);
     if (fly) state.map.easeTo({ center: [r.lon, r.lat], zoom: Math.max(state.map.getZoom(), 13), duration: 500 });
     document.querySelectorAll(".item.active").forEach((el) => el.classList.remove("active"));
@@ -360,20 +373,64 @@
   let suggestTimer, suggestions = [], activeSuggest = -1;
   function photonLabel(p) {
     const pr = p.properties;
+    if (pr._zip) return { top: pr._zip, sub: [pr.city, pr.state].filter(Boolean).join(", ") };
     const top = pr.name || [pr.housenumber, pr.street].filter(Boolean).join(" ") || pr.postcode;
-    const sub = [pr.city && pr.city !== top ? pr.city : "", pr.state, pr.postcode && pr.postcode !== top ? pr.postcode : ""].filter(Boolean).join(", ");
+    const sub = [pr.city && pr.city !== top ? pr.city : pr.county, pr.state, pr.postcode && pr.postcode !== top ? pr.postcode : ""].filter(Boolean).join(", ");
     return { top, sub };
   }
+  // What kind of thing is being typed decides which results are worth suggesting.
+  const queryKind = (q) => /^\d{3,5}$/.test(q) ? "zip" : /^\d+\s+\S/.test(q) ? "address" : "place";
+  const PLACE_TYPES = new Set(["city", "locality", "district", "county", "state"]);
+  function refine(q, feats) {
+    const kind = queryKind(q), seen = new Set(), out = [];
+    if (kind === "zip") {
+      for (const f of feats) {
+        const z = (f.properties.postcode || "").slice(0, 5);
+        if (!z.startsWith(q) || seen.has(z)) continue;
+        seen.add(z);
+        out.push({ ...f, properties: { ...f.properties, _zip: z } });
+      }
+      return out.slice(0, 4);
+    }
+    for (const f of feats) {
+      if (kind === "place" && !PLACE_TYPES.has(f.properties.type)) continue;
+      const l = photonLabel(f), key = `${l.top}|${l.sub}`;
+      if (seen.has(key)) continue;
+      seen.add(key); out.push(f);
+    }
+    return out.slice(0, 6);
+  }
+  // ZIPs are looked up in our own files (data/zips/<first 3 digits>.json, built from GeoNames),
+  // so typing a ZIP never suggests a random address.
+  const zipFiles = new Map();
+  function zipFile(prefix) {
+    if (!zipFiles.has(prefix)) zipFiles.set(prefix, fetch(`data/zips/${prefix}.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
+    return zipFiles.get(prefix);
+  }
+  async function zipLookup(q) {
+    const table = await zipFile(q.slice(0, 3));
+    if (!table) return null;                       // files not built yet: fall back to the geocoder
+    return Object.keys(table).filter((z) => z.startsWith(q)).sort().slice(0, 5).map((z) => {
+      const [lat, lon, city, st] = table[z];
+      return { geometry: { coordinates: [lon, lat] }, properties: { _zip: z, city, state: st } };
+    });
+  }
   async function geocode(q) {
+    q = q.trim();
+    if (queryKind(q) === "zip") {
+      const hits = await zipLookup(q);
+      if (hits) return { best: hits, all: hits };
+    }
     const u = new URL(PHOTON);
-    u.searchParams.set("q", /^\d{5}$/.test(q.trim()) ? `${q.trim()} USA` : q);
-    u.searchParams.set("limit", "6");
+    u.searchParams.set("q", queryKind(q) === "zip" ? `${q} USA` : q);
+    u.searchParams.set("limit", "15");
     u.searchParams.set("lang", "en");
     u.searchParams.set("bbox", "-170,18,-66,72");
     if (state.center) { u.searchParams.set("lon", state.center[0]); u.searchParams.set("lat", state.center[1]); }
     const r = await fetch(u);
     if (!r.ok) throw new Error("Place search is unavailable right now.");
-    return (await r.json()).features.filter((f) => !f.properties.countrycode || f.properties.countrycode === "US");
+    const us = (await r.json()).features.filter((f) => !f.properties.countrycode || f.properties.countrycode === "US");
+    return { best: refine(q, us), all: us };
   }
   function showSuggest(list) {
     suggestions = list; activeSuggest = -1;
@@ -387,20 +444,27 @@
     const l = photonLabel(f);
     $("place").value = l.sub ? `${l.top}, ${l.sub}` : l.top;
     $("suggest").hidden = true;
-    setCenter(f.geometry.coordinates[0], f.geometry.coordinates[1], l.top);
+    const pr = f.properties;
+    setCenter(f.geometry.coordinates[0], f.geometry.coordinates[1], pr._zip && pr.city ? `${pr.city} ${pr._zip}` : l.top);
   }
 
   // ---------- UI wiring ----------
   function buildControls() {
     const chips = $("tierChips");
+    if (state.tier && !state.tiers[state.tier]) state.tier = null;
     chips.innerHTML = Object.entries(state.tiers).map(([k, label]) =>
-      `<button type="button" class="chip" data-tier="${k}" style="--c:var(--${k})" aria-pressed="${state.tiersOn.has(k)}"><span class="dot"></span>${esc(label)}</button>`).join("");
+      `<button type="button" class="chip" data-tier="${k}" style="--c:var(--${k})"><span class="dot"></span>${esc(label)}</button>`).join("");
+    // Tap a type to show only that type; tap it again to go back to all types.
+    const paintChips = () => {
+      chips.classList.toggle("one", !!state.tier);
+      chips.querySelectorAll(".chip").forEach((b) => b.setAttribute("aria-pressed", state.tier === b.dataset.tier));
+    };
+    paintChips();
     chips.addEventListener("click", (e) => {
       const b = e.target.closest(".chip"); if (!b) return;
-      const t = b.dataset.tier;
-      state.tiersOn.has(t) ? state.tiersOn.delete(t) : state.tiersOn.add(t);
-      b.setAttribute("aria-pressed", state.tiersOn.has(t));
-      store.set("tiers", [...state.tiersOn]);
+      state.tier = state.tier === b.dataset.tier ? null : b.dataset.tier;
+      store.set("tier", state.tier);
+      paintChips();
       render(false);
     });
 
@@ -456,7 +520,7 @@
       clearTimeout(suggestTimer);
       const q = input.value.trim();
       if (q.length < 3) return showSuggest([]);
-      suggestTimer = setTimeout(() => geocode(q).then(showSuggest).catch(() => showSuggest([])), 300);
+      suggestTimer = setTimeout(() => geocode(q).then((r) => showSuggest(r.best)).catch(() => showSuggest([])), 300);
     });
     input.addEventListener("keydown", (e) => {
       const items = $("suggest").querySelectorAll("li");
@@ -471,7 +535,11 @@
       e.preventDefault();
       if (activeSuggest >= 0) return pick(activeSuggest);
       const q = input.value.trim(); if (!q) return;
-      try { const list = await geocode(q); if (list.length) { suggestions = list; pick(0); } else $("summary").textContent = `Couldn't find "${q}". Try a city and state, or a ZIP.`; }
+      try {
+        const { best, all } = await geocode(q);
+        const list = best.length ? best : all;   // Enter still works if the only match is an address
+        if (list.length) { suggestions = list; pick(0); } else $("summary").textContent = `Couldn't find "${q}". Try a city and state, or a ZIP.`;
+      }
       catch (err) { $("summary").textContent = err.message; }
     });
     document.addEventListener("click", (e) => { if (!e.target.closest(".search")) $("suggest").hidden = true; });

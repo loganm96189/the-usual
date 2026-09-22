@@ -11,7 +11,8 @@ rather than "restaurants near me".
 
 - **Static site** (HTML/CSS/JS, no build step, no API keys) — hosts free on Cloudflare Pages.
 - **Location data**: [All The Places](https://www.alltheplaces.xyz/) (CC-0), scraped weekly from each
-  chain's own store locator. A GitHub Action rebuilds `data/` every Monday.
+  chain's own store locator, matched by Wikidata brand code. Chains it doesn't cover are topped up from
+  OpenStreetMap (ODbL). A GitHub Action rebuilds `data/` every Thursday (skipped when there's no new data).
 - **Map**: MapLibre GL + [OpenFreeMap](https://openfreemap.org) tiles. **Place search**: [Photon](https://photon.komoot.io).
 - **Fallback**: if `data/index.json` is missing, the app queries OpenStreetMap live via Overpass.
 
@@ -22,7 +23,8 @@ rather than "restaurants near me".
 | `data/chains.json` | **The whitelist** — edit this to add/remove chains or tiers |
 | `scripts/build_data.py` | Pulls All The Places, keeps whitelisted US locations, writes `data/cells/*.json` |
 | `.github/workflows/refresh-data.yml` | Weekly data refresh; commits → Cloudflare redeploys |
-| `_headers` | Cloudflare Pages caching headers |
+| `_headers` | Cloudflare caching headers |
+| `wrangler.jsonc`, `.assetsignore` | Cloudflare deploy settings; keeps `.git`, scripts and tests off the public site |
 
 ## Add a chain
 Add an entry to `data/chains.json` (`name`, `tier`, optional `aliases` for other spellings), push.

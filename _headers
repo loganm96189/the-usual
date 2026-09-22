@@ -1,5 +1,7 @@
 /data/cells/*
   Cache-Control: public, max-age=86400
+/data/zips/*
+  Cache-Control: public, max-age=604800
 /data/index.json
   Cache-Control: public, max-age=300
 /*
