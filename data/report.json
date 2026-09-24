@@ -1,28 +1,10 @@
 [
  {
-  "chain": "Red Robin",
-  "tier": "casual",
-  "locations": 0,
-  "wikidata": [
-   "Q7304886"
-  ],
-  "sources": []
- },
- {
   "chain": "O'Charley's",
   "tier": "casual",
   "locations": 0,
   "wikidata": [
    "Q7071703"
-  ],
-  "sources": []
- },
- {
-  "chain": "Saltgrass Steak House",
-  "tier": "casual",
-  "locations": 0,
-  "wikidata": [
-   "Q7406113"
   ],
   "sources": []
  },
@@ -53,6 +35,15 @@
   "sources": []
  },
  {
+  "chain": "Bahama Breeze",
+  "tier": "casual",
+  "locations": 0,
+  "wikidata": [
+   "Q4842316"
+  ],
+  "sources": []
+ },
+ {
   "chain": "On The Border",
   "tier": "casual",
   "locations": 0,
@@ -78,6 +69,15 @@
   "sources": []
  },
  {
+  "chain": "Chevys Fresh Mex",
+  "tier": "casual",
+  "locations": 0,
+  "wikidata": [
+   "Q5094466"
+  ],
+  "sources": []
+ },
+ {
   "chain": "Smokey Bones",
   "tier": "casual",
   "locations": 0,
@@ -94,11 +94,11 @@
   "sources": []
  },
  {
-  "chain": "Rock Bottom",
+  "chain": "Old Chicago",
   "tier": "casual",
   "locations": 0,
   "wikidata": [
-   "Q73504866"
+   "Q64411347"
   ],
   "sources": []
  },
@@ -121,11 +121,20 @@
   "sources": []
  },
  {
-  "chain": "Village Inn",
+  "chain": "Frisch's Big Boy",
   "tier": "family",
   "locations": 0,
   "wikidata": [
-   "Q7930659"
+   "Q5504660"
+  ],
+  "sources": []
+ },
+ {
+  "chain": "First Watch",
+  "tier": "family",
+  "locations": 0,
+  "wikidata": [
+   "Q5454064"
   ],
   "sources": []
  },
@@ -180,6 +189,15 @@
   "sources": []
  },
  {
+  "chain": "Brio Italian Grille",
+  "tier": "polished",
+  "locations": 0,
+  "wikidata": [
+   "Q64055835"
+  ],
+  "sources": []
+ },
+ {
   "chain": "Grand Lux Cafe",
   "tier": "polished",
   "locations": 0,
@@ -188,13 +206,6 @@
  },
  {
   "chain": "Firebirds Wood Fired Grill",
-  "tier": "polished",
-  "locations": 0,
-  "wikidata": [],
-  "sources": []
- },
- {
-  "chain": "Del Frisco's Grille",
   "tier": "polished",
   "locations": 0,
   "wikidata": [],
@@ -249,6 +260,25 @@
   "sources": []
  },
  {
+  "chain": "Margaritaville",
+  "tier": "novelty",
+  "locations": 0,
+  "wikidata": [
+   "Q61893368",
+   "Q6199715"
+  ],
+  "sources": []
+ },
+ {
+  "chain": "Main Event",
+  "tier": "novelty",
+  "locations": 0,
+  "wikidata": [
+   "Q56062981"
+  ],
+  "sources": []
+ },
+ {
   "chain": "Punch Bowl Social",
   "tier": "novelty",
   "locations": 0,
@@ -281,9 +311,42 @@
   "sources": []
  },
  {
+  "chain": "Cracker Barrel",
+  "tier": "family",
+  "locations": 1,
+  "wikidata": [
+   "Q4492609"
+  ],
+  "sources": [
+   "bmo_us"
+  ]
+ },
+ {
+  "chain": "Village Inn",
+  "tier": "family",
+  "locations": 2,
+  "wikidata": [
+   "Q7930659"
+  ],
+  "sources": [
+   "national_register_of_historic_places"
+  ]
+ },
+ {
+  "chain": "Rock Bottom",
+  "tier": "casual",
+  "locations": 3,
+  "wikidata": [
+   "Q73504866"
+  ],
+  "sources": [
+   "rock_bottom"
+  ]
+ },
+ {
   "chain": "North Italia",
   "tier": "polished",
-  "locations": 3,
+  "locations": 4,
   "wikidata": [
    "Q140197733"
   ],
@@ -314,14 +377,23 @@
   ]
  },
  {
-  "chain": "Bubba Gump Shrimp Co.",
-  "tier": "novelty",
-  "locations": 12,
+  "chain": "Joe's Crab Shack",
+  "tier": "casual",
+  "locations": 13,
   "wikidata": [
-   "Q50024"
+   "Q6208210"
   ],
   "sources": [
-   "openstreetmap"
+   "joes_crab_shack_us"
+  ]
+ },
+ {
+  "chain": "Del Frisco's Grille",
+  "tier": "polished",
+  "locations": 13,
+  "wikidata": [],
+  "sources": [
+   "del_friscos_grille_us"
   ]
  },
  {
@@ -349,12 +421,12 @@
  {
   "chain": "Rainforest Cafe",
   "tier": "novelty",
-  "locations": 17,
+  "locations": 16,
   "wikidata": [
    "Q3391111"
   ],
   "sources": [
-   "openstreetmap"
+   "rainforest_cafe_us"
   ]
  },
  {
@@ -380,26 +452,14 @@
   ]
  },
  {
-  "chain": "Margaritaville",
+  "chain": "Bubba Gump Shrimp Co.",
   "tier": "novelty",
-  "locations": 19,
+  "locations": 20,
   "wikidata": [
-   "Q61893368",
-   "Q6199715"
+   "Q50024"
   ],
   "sources": [
-   "openstreetmap"
-  ]
- },
- {
-  "chain": "Chevys Fresh Mex",
-  "tier": "casual",
-  "locations": 21,
-  "wikidata": [
-   "Q5094466"
-  ],
-  "sources": [
-   "openstreetmap"
+   "bubba_gump_shrimp_us"
   ]
  },
  {
@@ -414,55 +474,11 @@
   ]
  },
  {
-  "chain": "Brio Italian Grille",
-  "tier": "polished",
-  "locations": 29,
-  "wikidata": [
-   "Q64055835"
-  ],
-  "sources": [
-   "openstreetmap"
-  ]
- },
- {
-  "chain": "Bahama Breeze",
-  "tier": "casual",
-  "locations": 30,
-  "wikidata": [
-   "Q4842316"
-  ],
-  "sources": [
-   "openstreetmap"
-  ]
- },
- {
   "chain": "True Food Kitchen",
   "tier": "polished",
   "locations": 31,
   "wikidata": [
    "Q113488682"
-  ],
-  "sources": [
-   "openstreetmap"
-  ]
- },
- {
-  "chain": "Main Event",
-  "tier": "novelty",
-  "locations": 32,
-  "wikidata": [
-   "Q56062981"
-  ],
-  "sources": [
-   "openstreetmap"
-  ]
- },
- {
-  "chain": "Joe's Crab Shack",
-  "tier": "casual",
-  "locations": 37,
-  "wikidata": [
-   "Q6208210"
   ],
   "sources": [
    "openstreetmap"
@@ -488,28 +504,6 @@
   ],
   "sources": [
    "buca_di_beppo_us"
-  ]
- },
- {
-  "chain": "Big Boy",
-  "tier": "family",
-  "locations": 46,
-  "wikidata": [
-   "Q4386779"
-  ],
-  "sources": [
-   "big_boy_us"
-  ]
- },
- {
-  "chain": "Frisch's Big Boy",
-  "tier": "family",
-  "locations": 47,
-  "wikidata": [
-   "Q5504660"
-  ],
-  "sources": [
-   "openstreetmap"
   ]
  },
  {
@@ -568,6 +562,17 @@
   ]
  },
  {
+  "chain": "Big Boy",
+  "tier": "family",
+  "locations": 64,
+  "wikidata": [
+   "Q4386779"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
   "chain": "TGI Fridays",
   "tier": "casual",
   "locations": 65,
@@ -576,17 +581,6 @@
   ],
   "sources": [
    "tgi_fridays_us"
-  ]
- },
- {
-  "chain": "Old Chicago",
-  "tier": "casual",
-  "locations": 66,
-  "wikidata": [
-   "Q64411347"
-  ],
-  "sources": [
-   "openstreetmap"
   ]
  },
  {
@@ -602,6 +596,17 @@
   ]
  },
  {
+  "chain": "Yard House",
+  "tier": "polished",
+  "locations": 77,
+  "wikidata": [
+   "Q21189156"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
   "chain": "Benihana",
   "tier": "novelty",
   "locations": 80,
@@ -610,17 +615,6 @@
   ],
   "sources": [
    "benihana"
-  ]
- },
- {
-  "chain": "Famous Dave's",
-  "tier": "casual",
-  "locations": 87,
-  "wikidata": [
-   "Q5433448"
-  ],
-  "sources": [
-   "openstreetmap"
   ]
  },
  {
@@ -646,14 +640,14 @@
   ]
  },
  {
-  "chain": "Yard House",
-  "tier": "polished",
-  "locations": 98,
+  "chain": "Saltgrass Steak House",
+  "tier": "casual",
+  "locations": 97,
   "wikidata": [
-   "Q21189156"
+   "Q7406113"
   ],
   "sources": [
-   "yard_house"
+   "saltgrass_steak_house_us"
   ]
  },
  {
@@ -665,6 +659,17 @@
   ],
   "sources": [
    "topgolf_us"
+  ]
+ },
+ {
+  "chain": "Famous Dave's",
+  "tier": "casual",
+  "locations": 108,
+  "wikidata": [
+   "Q5433448"
+  ],
+  "sources": [
+   "famous_daves_us"
   ]
  },
  {
@@ -691,6 +696,17 @@
   ]
  },
  {
+  "chain": "Logan's Roadhouse",
+  "tier": "casual",
+  "locations": 114,
+  "wikidata": [
+   "Q6666872"
+  ],
+  "sources": [
+   "logans_roadhouse_us"
+  ]
+ },
+ {
   "chain": "Miller's Ale House",
   "tier": "casual",
   "locations": 114,
@@ -699,17 +715,6 @@
   ],
   "sources": [
    "millers_ale_house"
-  ]
- },
- {
-  "chain": "Logan's Roadhouse",
-  "tier": "casual",
-  "locations": 115,
-  "wikidata": [
-   "Q6666872"
-  ],
-  "sources": [
-   "logans_roadhouse_us"
   ]
  },
  {
@@ -860,7 +865,7 @@
  {
   "chain": "Huddle House",
   "tier": "family",
-  "locations": 247,
+  "locations": 244,
   "wikidata": [
    "Q5928324"
   ],
@@ -871,7 +876,7 @@
  {
   "chain": "Golden Corral",
   "tier": "family",
-  "locations": 332,
+  "locations": 331,
   "wikidata": [
    "Q4039560"
   ],
@@ -881,25 +886,25 @@
   ]
  },
  {
-  "chain": "First Watch",
-  "tier": "family",
-  "locations": 352,
-  "wikidata": [
-   "Q5454064"
-  ],
-  "sources": [
-   "openstreetmap"
-  ]
- },
- {
   "chain": "Bob Evans",
   "tier": "family",
-  "locations": 412,
+  "locations": 411,
   "wikidata": [
    "Q4932386"
   ],
   "sources": [
    "bob_evans_us"
+  ]
+ },
+ {
+  "chain": "Red Robin",
+  "tier": "casual",
+  "locations": 449,
+  "wikidata": [
+   "Q7304886"
+  ],
+  "sources": [
+   "red_robin"
   ]
  },
  {
@@ -914,21 +919,9 @@
   ]
  },
  {
-  "chain": "Cracker Barrel",
-  "tier": "family",
-  "locations": 635,
-  "wikidata": [
-   "Q4492609"
-  ],
-  "sources": [
-   "bmo_us",
-   "openstreetmap"
-  ]
- },
- {
   "chain": "LongHorn Steakhouse",
   "tier": "casual",
-  "locations": 650,
+  "locations": 651,
   "wikidata": [
    "Q3259007"
   ],
@@ -939,7 +932,7 @@
  {
   "chain": "Outback Steakhouse",
   "tier": "casual",
-  "locations": 659,
+  "locations": 658,
   "wikidata": [
    "Q1064893"
   ],
@@ -961,18 +954,18 @@
  {
   "chain": "Olive Garden",
   "tier": "casual",
-  "locations": 968,
+  "locations": 872,
   "wikidata": [
    "Q3045312"
   ],
   "sources": [
-   "olive_garden"
+   "openstreetmap"
   ]
  },
  {
   "chain": "Chili's",
   "tier": "casual",
-  "locations": 1212,
+  "locations": 1211,
   "wikidata": [
    "Q1072948"
   ],
@@ -996,7 +989,7 @@
  {
   "chain": "Buffalo Wild Wings",
   "tier": "casual",
-  "locations": 1418,
+  "locations": 1422,
   "wikidata": [
    "Q509255"
   ],
@@ -1008,7 +1001,7 @@
  {
   "chain": "Applebee's",
   "tier": "casual",
-  "locations": 1451,
+  "locations": 1453,
   "wikidata": [
    "Q621532"
   ],
@@ -1019,7 +1012,7 @@
  {
   "chain": "IHOP",
   "tier": "family",
-  "locations": 1679,
+  "locations": 1680,
   "wikidata": [
    "Q1185675"
   ],
