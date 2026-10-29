@@ -87,6 +87,15 @@
   "sources": []
  },
  {
+  "chain": "Ninety Nine",
+  "tier": "casual",
+  "locations": 0,
+  "wikidata": [
+   "Q64358371"
+  ],
+  "sources": []
+ },
+ {
   "chain": "Smokey Bones",
   "tier": "casual",
   "locations": 0,
@@ -144,6 +153,15 @@
   "locations": 0,
   "wikidata": [
    "Q1464513"
+  ],
+  "sources": []
+ },
+ {
+  "chain": "Eat'n Park",
+  "tier": "family",
+  "locations": 0,
+  "wikidata": [
+   "Q5331211"
   ],
   "sources": []
  },
@@ -572,20 +590,9 @@
   ]
  },
  {
-  "chain": "Eat'n Park",
-  "tier": "family",
-  "locations": 55,
-  "wikidata": [
-   "Q5331211"
-  ],
-  "sources": [
-   "eatn_park_us"
-  ]
- },
- {
   "chain": "TGI Fridays",
   "tier": "casual",
-  "locations": 65,
+  "locations": 64,
   "wikidata": [
    "Q1524184"
   ],
@@ -625,17 +632,6 @@
   ],
   "sources": [
    "benihana"
-  ]
- },
- {
-  "chain": "Ninety Nine",
-  "tier": "casual",
-  "locations": 93,
-  "wikidata": [
-   "Q64358371"
-  ],
-  "sources": [
-   "ninety_nine_restaurant_us"
   ]
  },
  {
@@ -741,7 +737,7 @@
  {
   "chain": "Hooters",
   "tier": "novelty",
-  "locations": 152,
+  "locations": 149,
   "wikidata": [
    "Q1025921"
   ],
@@ -763,7 +759,7 @@
  {
   "chain": "Ruby Tuesday",
   "tier": "casual",
-  "locations": 166,
+  "locations": 165,
   "wikidata": [
    "Q7376400"
   ],
@@ -785,7 +781,7 @@
  {
   "chain": "Dave & Buster's",
   "tier": "novelty",
-  "locations": 182,
+  "locations": 183,
   "wikidata": [
    "Q5228205"
   ],
@@ -841,7 +837,7 @@
  {
   "chain": "Huddle House",
   "tier": "family",
-  "locations": 244,
+  "locations": 245,
   "wikidata": [
    "Q5928324"
   ],
@@ -864,7 +860,7 @@
  {
   "chain": "Perkins",
   "tier": "family",
-  "locations": 337,
+  "locations": 371,
   "wikidata": [
    "Q7169056"
   ],
@@ -908,20 +904,9 @@
   ]
  },
  {
-  "chain": "LongHorn Steakhouse",
-  "tier": "casual",
-  "locations": 653,
-  "wikidata": [
-   "Q3259007"
-  ],
-  "sources": [
-   "longhorn_steakhouse"
-  ]
- },
- {
   "chain": "Outback Steakhouse",
   "tier": "casual",
-  "locations": 658,
+  "locations": 655,
   "wikidata": [
    "Q1064893"
   ],
@@ -930,9 +915,20 @@
   ]
  },
  {
+  "chain": "LongHorn Steakhouse",
+  "tier": "casual",
+  "locations": 656,
+  "wikidata": [
+   "Q3259007"
+  ],
+  "sources": [
+   "longhorn_steakhouse"
+  ]
+ },
+ {
   "chain": "First Watch",
   "tier": "family",
-  "locations": 673,
+  "locations": 680,
   "wikidata": [
    "Q5454064"
   ],
@@ -943,7 +939,7 @@
  {
   "chain": "Texas Roadhouse",
   "tier": "casual",
-  "locations": 738,
+  "locations": 740,
   "wikidata": [
    "Q7707945"
   ],
@@ -978,7 +974,7 @@
  {
   "chain": "Buffalo Wild Wings",
   "tier": "casual",
-  "locations": 1416,
+  "locations": 1413,
   "wikidata": [
    "Q509255"
   ],
@@ -1012,7 +1008,7 @@
  {
   "chain": "Waffle House",
   "tier": "family",
-  "locations": 2103,
+  "locations": 2110,
   "wikidata": [
    "Q1701206"
   ],
