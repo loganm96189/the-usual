@@ -1,28 +1,10 @@
 [
  {
-  "chain": "Olive Garden",
-  "tier": "casual",
-  "locations": 0,
-  "wikidata": [
-   "Q3045312"
-  ],
-  "sources": []
- },
- {
   "chain": "Red Lobster",
   "tier": "casual",
   "locations": 0,
   "wikidata": [
    "Q846301"
-  ],
-  "sources": []
- },
- {
-  "chain": "LongHorn Steakhouse",
-  "tier": "casual",
-  "locations": 0,
-  "wikidata": [
-   "Q3259007"
   ],
   "sources": []
  },
@@ -114,13 +96,6 @@
   "sources": []
  },
  {
-  "chain": "Walk-On's",
-  "tier": "casual",
-  "locations": 0,
-  "wikidata": [],
-  "sources": []
- },
- {
   "chain": "Old Chicago",
   "tier": "casual",
   "locations": 0,
@@ -144,24 +119,6 @@
   "locations": 0,
   "wikidata": [
    "Q97355076"
-  ],
-  "sources": []
- },
- {
-  "chain": "Mellow Mushroom",
-  "tier": "casual",
-  "locations": 0,
-  "wikidata": [
-   "Q17021360"
-  ],
-  "sources": []
- },
- {
-  "chain": "Friendly's",
-  "tier": "family",
-  "locations": 0,
-  "wikidata": [
-   "Q1464513"
   ],
   "sources": []
  },
@@ -191,15 +148,6 @@
   "sources": []
  },
  {
-  "chain": "Mimi's Cafe",
-  "tier": "family",
-  "locations": 0,
-  "wikidata": [
-   "Q17022081"
-  ],
-  "sources": []
- },
- {
   "chain": "Silver Diner",
   "tier": "family",
   "locations": 0,
@@ -213,15 +161,6 @@
   "tier": "family",
   "locations": 0,
   "wikidata": [],
-  "sources": []
- },
- {
-  "chain": "Yard House",
-  "tier": "polished",
-  "locations": 0,
-  "wikidata": [
-   "Q21189156"
-  ],
   "sources": []
  },
  {
@@ -241,37 +180,10 @@
   "sources": []
  },
  {
-  "chain": "J. Alexander's",
-  "tier": "polished",
-  "locations": 0,
-  "wikidata": [
-   "Q16997495"
-  ],
-  "sources": []
- },
- {
   "chain": "Firebirds Wood Fired Grill",
   "tier": "polished",
   "locations": 0,
   "wikidata": [],
-  "sources": []
- },
- {
-  "chain": "Cooper's Hawk Winery & Restaurants",
-  "tier": "polished",
-  "locations": 0,
-  "wikidata": [
-   "Q17511079"
-  ],
-  "sources": []
- },
- {
-  "chain": "North Italia",
-  "tier": "polished",
-  "locations": 0,
-  "wikidata": [
-   "Q140197733"
-  ],
   "sources": []
  },
  {
@@ -310,15 +222,6 @@
   "locations": 0,
   "wikidata": [
    "Q22073184"
-  ],
-  "sources": []
- },
- {
-  "chain": "True Food Kitchen",
-  "tier": "polished",
-  "locations": 0,
-  "wikidata": [
-   "Q113488682"
   ],
   "sources": []
  },
@@ -377,6 +280,17 @@
   ]
  },
  {
+  "chain": "North Italia",
+  "tier": "polished",
+  "locations": 7,
+  "wikidata": [
+   "Q140197733"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
   "chain": "Medieval Times",
   "tier": "novelty",
   "locations": 9,
@@ -385,6 +299,17 @@
   ],
   "sources": [
    "medieval_times"
+  ]
+ },
+ {
+  "chain": "J. Alexander's",
+  "tier": "polished",
+  "locations": 10,
+  "wikidata": [
+   "Q16997495"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
@@ -510,7 +435,7 @@
  {
   "chain": "Bahama Breeze",
   "tier": "casual",
-  "locations": 28,
+  "locations": 27,
   "wikidata": [
    "Q4842316"
   ],
@@ -524,6 +449,17 @@
   "locations": 28,
   "wikidata": [
    "Q64055835"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "True Food Kitchen",
+  "tier": "polished",
+  "locations": 30,
+  "wikidata": [
+   "Q113488682"
   ],
   "sources": [
    "openstreetmap"
@@ -574,6 +510,17 @@
   ]
  },
  {
+  "chain": "Mimi's Cafe",
+  "tier": "family",
+  "locations": 48,
+  "wikidata": [
+   "Q17022081"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
   "chain": "Maggiano's Little Italy",
   "tier": "polished",
   "locations": 48,
@@ -582,6 +529,17 @@
   ],
   "sources": [
    "maggianos_little_italy"
+  ]
+ },
+ {
+  "chain": "Cooper's Hawk Winery & Restaurants",
+  "tier": "polished",
+  "locations": 49,
+  "wikidata": [
+   "Q17511079"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
@@ -658,8 +616,27 @@
    "Q104870732"
   ],
   "sources": [
-   "metro_diner",
    "metro_diner_us"
+  ]
+ },
+ {
+  "chain": "Yard House",
+  "tier": "polished",
+  "locations": 77,
+  "wikidata": [
+   "Q21189156"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
+  "chain": "Walk-On's",
+  "tier": "casual",
+  "locations": 78,
+  "wikidata": [],
+  "sources": [
+   "walk_ons_us"
   ]
  },
  {
@@ -671,6 +648,17 @@
   ],
   "sources": [
    "benihana"
+  ]
+ },
+ {
+  "chain": "Friendly's",
+  "tier": "family",
+  "locations": 92,
+  "wikidata": [
+   "Q1464513"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
@@ -752,6 +740,17 @@
   ]
  },
  {
+  "chain": "Mellow Mushroom",
+  "tier": "casual",
+  "locations": 135,
+  "wikidata": [
+   "Q17021360"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
   "chain": "Hooters",
   "tier": "novelty",
   "locations": 148,
@@ -765,7 +764,7 @@
  {
   "chain": "Bonefish Grill",
   "tier": "casual",
-  "locations": 156,
+  "locations": 155,
   "wikidata": [
    "Q4941599"
   ],
@@ -787,7 +786,7 @@
  {
   "chain": "Ruby Tuesday",
   "tier": "casual",
-  "locations": 165,
+  "locations": 164,
   "wikidata": [
    "Q7376400"
   ],
@@ -809,7 +808,7 @@
  {
   "chain": "Dave & Buster's",
   "tier": "novelty",
-  "locations": 183,
+  "locations": 184,
   "wikidata": [
    "Q5228205"
   ],
@@ -864,7 +863,7 @@
  {
   "chain": "Huddle House",
   "tier": "family",
-  "locations": 248,
+  "locations": 245,
   "wikidata": [
    "Q5928324"
   ],
@@ -875,7 +874,7 @@
  {
   "chain": "Golden Corral",
   "tier": "family",
-  "locations": 329,
+  "locations": 328,
   "wikidata": [
    "Q4039560"
   ],
@@ -887,7 +886,7 @@
  {
   "chain": "First Watch",
   "tier": "family",
-  "locations": 356,
+  "locations": 357,
   "wikidata": [
    "Q5454064"
   ],
@@ -920,6 +919,17 @@
   ]
  },
  {
+  "chain": "LongHorn Steakhouse",
+  "tier": "casual",
+  "locations": 535,
+  "wikidata": [
+   "Q3259007"
+  ],
+  "sources": [
+   "openstreetmap"
+  ]
+ },
+ {
   "chain": "Cracker Barrel",
   "tier": "family",
   "locations": 636,
@@ -945,12 +955,23 @@
  {
   "chain": "Texas Roadhouse",
   "tier": "casual",
-  "locations": 739,
+  "locations": 741,
   "wikidata": [
    "Q7707945"
   ],
   "sources": [
    "texas_roadhouse"
+  ]
+ },
+ {
+  "chain": "Olive Garden",
+  "tier": "casual",
+  "locations": 874,
+  "wikidata": [
+   "Q3045312"
+  ],
+  "sources": [
+   "openstreetmap"
   ]
  },
  {
@@ -980,7 +1001,7 @@
  {
   "chain": "Buffalo Wild Wings",
   "tier": "casual",
-  "locations": 1440,
+  "locations": 1438,
   "wikidata": [
    "Q509255"
   ],
@@ -992,7 +1013,7 @@
  {
   "chain": "Applebee's",
   "tier": "casual",
-  "locations": 1452,
+  "locations": 1453,
   "wikidata": [
    "Q621532"
   ],
@@ -1003,7 +1024,7 @@
  {
   "chain": "IHOP",
   "tier": "family",
-  "locations": 1685,
+  "locations": 1688,
   "wikidata": [
    "Q1185675"
   ],
@@ -1014,7 +1035,7 @@
  {
   "chain": "Waffle House",
   "tier": "family",
-  "locations": 2110,
+  "locations": 2104,
   "wikidata": [
    "Q1701206"
   ],
